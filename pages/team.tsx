@@ -65,11 +65,11 @@ module.exports.getServerSideProps = async ({ req }) => {
   
       } catch (e) {
   
-        return { title: 'Error Fetching' }
+        return { props: { title: 'Error Fetching' }}
   
       }
     } else {
   
-      return { title: 'Error Fetching' }
+      return { props: { title: 'Error Fetching' }}
     }
   }
