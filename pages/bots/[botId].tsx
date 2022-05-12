@@ -229,6 +229,12 @@ export async function getServerSideProps(context) {
 
     const res = await fetch(`https://catnip.metrobots.xyz/bots/${context.params.botId}`);
     const data = await res.json();
+  
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
 
     const ownerFetch = await fetch(`https://api.fateslist.xyz/blazefire/${data.owner}`);
     const owner = await ownerFetch.json();
@@ -248,12 +254,6 @@ export async function getServerSideProps(context) {
         smartLists: true,
         smartyPants: true
     });
-
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
 
     const content = await sanitize(marked.parse(data.long_description), {
           "allowedAttributes": {
