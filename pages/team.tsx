@@ -53,7 +53,7 @@ module.exports.getServerSideProps = async ({ req }) => {
     if (req) {
       try {
   
-        let data = await axios.get('https://metrobots.xyz/team');
+        let data = await axios.get('https://catnip.metrobots.xyz/team');
   
         let users = data.data
 
