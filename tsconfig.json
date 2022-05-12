@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "baseUrl": ".",
+      "paths": {
+        "@/root/*": ["./*"],
+        "@/locales/*": ["i18n/*"],
+        "@/library/*": ["library/*"],
+        "@/linkcord-locale/*": ["library/localization/*"],
+        "@/components/*": ["components/*"],
+        "@/icons/*": ["components/icons/*"],
+      },
+      "allowJs": true,
+      "skipLibCheck": true,
+      "strict": false,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      "incremental": true,
+      "esModuleInterop": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "preserve"
+    },
+    "include": [
+      "next-env.d.ts",
+      "components/*",
+      "**/*.ts",
+      "**/*.tsx",     
+      "**/*.js",
+      "**/*.jsx"   
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
