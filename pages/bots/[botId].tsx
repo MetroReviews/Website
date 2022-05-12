@@ -14,7 +14,8 @@ import { toast } from "react-toastify"
 import marked from "marked";
 import sanitize from "insane";
 
-const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
+
+const BotPage = ({ $, bot, long, owner, fetch, list }) => {
 
   return (
     <>
@@ -89,10 +90,10 @@ const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
                 </div>
                 <CopyToClipboard text={bot.list_source} onCopy={() => toast.success('List Source ID has been copied to your clipboard!')}>
                 <button className="flex items-center shadow-xl w-full">
-                    <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                    <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                        <p className="line-clamp-1">Source:</p>
                     </div>
-                    <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white">
+                    <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                          <p className="line-clamp-1 text-left">Copy Source ID!</p>
                     </div>
                 </button>
@@ -112,6 +113,14 @@ const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
                   </div>
                   <div className="flex items-center shadow-xl">
                     <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
+                      <p className="line-clamp-1">Source:</p>
+                    </div>
+                    <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
+                      <p className="line-clamp-1">{list.name}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center shadow-xl">
+                    <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                        <p className="line-clamp-1">Added:</p>
                     </div>
                     <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
@@ -119,10 +128,10 @@ const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
                     </div>
                 </div>
                 <div className="flex items-center shadow-xl">
-                    <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                    <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                        <p className="line-clamp-1">Library:</p>
                     </div>
-                    <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white">
+                    <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                        <p className="line-clamp-1">{bot.library}</p>
                     </div>
                 </div>
@@ -133,7 +142,7 @@ const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
                 <p className="text-white text-lg">Owner</p>
                 <div className="w-full">
                     <div className="flex items-center shadow-xl">
-                        <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                        <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                           <div className="border-[2.2px] w-[3rem] h-[2rem] border-amber-500/50 rounded-full flex mx-auto items-center justify-center">
                             <Avatar
                                src={owner.avatar}
@@ -143,7 +152,7 @@ const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
                             />
                           </div>
                         </div>
-                        <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white h-[3rem]">
+                        <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white h-[3rem]">
                             <p className="line-clamp-1 text-xl">
                                 {owner.username}
                             </p>
@@ -156,40 +165,40 @@ const BotPage = ({ $, bot, long, owner, fetch, owners }) => {
                <div className="w-full">
                   { bot.bot_id && (
                     <a href={`https://discord.com/users/${bot.bot_id}`} className="flex items-center shadow-xl" target="_blank">
-                      <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                      <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                         <i className="fab fa-discord" />
                       </div>
-                      <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white">
+                      <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                         <p className="line-clamp-1">View Profile</p>
                       </div>
                     </a>
                    )}
                    { bot.website && (
                     <a href={bot.website} className="flex items-center shadow-xl" target="_blank">
-                      <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                      <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                         <i className="fab fa-discord" />
                       </div>
-                      <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white">
+                      <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                         <p className="line-clamp-1">Visit Website</p>
                       </div>
                     </a>
                    )}
                    { bot.invite && (
                     <a href={bot.invite} className="flex items-center shadow-xl" target="_blank">
-                      <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                      <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                         <i className="fab fa-discord" />
                       </div>
-                      <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white">
+                      <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                         <p className="line-clamp-1">Invite Bot</p>
                       </div>
                     </a>
                    )}
                    { bot.invite_link && (
                     <a href={bot.invite} className="flex items-center shadow-xl" target="_blank">
-                      <div className="mt-2 bg-indigo-700 text-center px-4 py-2 rounded-l-lg text-white">
+                      <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                         <i className="fab fa-discord" />
                       </div>
-                      <div className="mt-2 bg-indigo-600 w-full px-4 py-2 rounded-r-lg text-white">
+                      <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                         <p className="line-clamp-1">Testing Server</p>
                       </div>
                     </a>
@@ -226,6 +235,9 @@ export async function getServerSideProps(context) {
 
     const botInfo = await fetch(`https://api.fateslist.xyz/blazefire/${context.params.botId}`)
     const bot_info = await botInfo.json();
+
+    const lists = await fetch(`https://catnip.metrobots.xyz/list/${data.list_source}`)
+    const list = await lists.json();
 
     marked.setOptions({
         gfm: true,
@@ -272,6 +284,7 @@ export async function getServerSideProps(context) {
             bot: data,
             owner: owner,
             fetch: bot_info,
+            list: list,
             long: content.replace(/(\r\n|\n\r|\r|\n)/g, '<br />').replace(/(---)/g, '<hr />')
         }
     }
