@@ -1,17 +1,12 @@
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify"
-import Key from "../components/Key";
-import swr from "../lib/swr";
-import Image from "next/image";
-import Script from "next/script";
-import axios from "axios"; 
 
 export default function Index({ $, title, stats }) {
   const [enterLoading, setEnterLoading] = useState(false);
   const mainButton = useRef(null);
 
-  if (!stats) toast.success('List Data is loading. If this hangs please refresh the page')
+  if (!stats) toast.success('List Data has been loaded successfully but our loader is known to hang. If this happens simply refresh the page')
 
   const Loading = () => <i className="fa fa-spinner-third fa-spin text-white" />;
 
@@ -38,7 +33,7 @@ export default function Index({ $, title, stats }) {
               </a>
             </Link>
             <Link
-              href={"https://github.com/MetroReviews/support"}
+              href={"https://enroll.metrobots.xyz"}
             >
               <a
                 onClick={() => setEnterLoading(true)}
@@ -52,7 +47,6 @@ export default function Index({ $, title, stats }) {
             </Link>
         </div>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-y-0 lg:gap-x-12 py-24 max-w-7xl mx-auto">
           <div className="col-span-4">
             <p className="text-white text-4xl font-bold" dangerouslySetInnerHTML={{ __html: $.index.features.title }} />
@@ -74,10 +68,10 @@ export default function Index({ $, title, stats }) {
       </div>
 
       {!stats ? 
-        <div className="col-span-1 md:col-span-2 flex items-center justify-center">
+        <div className="col-span-1 md:col-span-2 flex items-center justify-center" onChange={() => { setEnterLoading(false)}}>
           <i className="fad fa-spinner-third fa-spin text-white text-2xl" />
       </div> : 
-      <div className="max-w-7xl text-center h-auto my-14 lg:my-56 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg p-6 shadow-md mx-auto">
+      <div className="max-w-7xl text-center h-auto my-14 lg:my-56 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg p-6 shadow-md mx-auto" onLoad={() => { setEnterLoading(false)}}>
         <p className="text-2xl p-6 text-white font-semibold" dangerouslySetInnerHTML={{ __html: $.index.list_stats.chosen.replace('{list_count}', stats.length) }} />
              <div className="lg:px-32 flex flex-col lg:flex-row items-center justify-center lg:justify-between w-full mx-auto">
                 {stats.map((stat, statIdx) => (
@@ -103,23 +97,20 @@ export default function Index({ $, title, stats }) {
   );
 }
 
-module.exports.getServerSideProps = async ({ req }) => {
-  if (req) {
-    try {
+module.exports.getServerSideProps = async ({ context }) => {
 
-      let data = await axios.get('https://catnip.metrobots.xyz/lists');
+  const res = await fetch('https://catnip.metrobots.xyz/lists');
+  const lists = await res.json();
 
-      let lists = data.data
-
-      return { props: { stats: lists }}
-
-    } catch (e) {
-
-      return { props: { title: 'Error fetching data.' } }
-
+  if (!lists) {
+    return {
+      notFound: true
     }
-  } else {
+  }
 
-    return { title: 'Error Fetching' }
+  return {
+    props: { 
+      stats: lists
+    }
   }
 }

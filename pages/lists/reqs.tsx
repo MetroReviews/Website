@@ -37,7 +37,7 @@ export default function Requirements({ $ }) {
                           }
                         > Get Support</a>
                     </Link>
-                    <Link href={"https://github.com/MetroReviews/support"}>
+                    <Link href={"https://enroll.metrobots.xyz"}>
                     <a
                       onClick={() => setEnterLoading(true)}
                       ref={mainButton}

@@ -15,15 +15,15 @@ export default function Team({ $, team }) {
                     
                 </p>
             </div>
-            <div className="lg:max-w-screen-lg mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="lg:max-w-screen-lg mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 w-auto">
                 {!team ? <div className="col-span-1 md:col-span-2 flex items-center justify-center">
                     <i className="fad fa-spinner-third fa-spin text-white text-2xl" />
                 </div> : (team.map((member, index) => (
-                    <div key={index} className="flex flex-col justify-center text-white rounded">
-                        <div className="flex-1 gap-x-4 flex items-center bg-gradient-to-br from-neutral-900/80 to-neutral-900/20 p-3 rounded-lg h-auto">
-                            <img className="rounded-full h-32 w-32" alt={member.username} src={!member.avatar ? `/img/defaultUser.webp` : member.avatar} />
+                    <div key={index} className="flex flex-col justify-center text-white rounded w-auto">
+                        <div className="flex-1 gap-x-4 flex items-center bg-gradient-to-br from-neutral-900/80 to-neutral-900/20 p-3 rounded-lg w-auto h-auto border border-amber-800">
+                            <img className="rounded-full h-24 w-24" alt={member.username} src={!member.avatar ? `/img/defaultUser.webp` : member.avatar} />
                             <div>
-                                <h1 className="leading-none text-3xl font-bold text-white">
+                                <h1 className="leading-none text-xl font-bold text-white">
                                     {member.username}
                                 </h1>
                                 <br />
@@ -35,7 +35,7 @@ export default function Team({ $, team }) {
                                    }
                                 </h3>
                                 <h3>
-                                  <span className="text-amber-500 font-bold">Staff In:</span>  Infinity Bot List
+                                  <span className="text-amber-500 font-bold">Staff In:</span>  {member.roles.join(", ")}
                                 </h3>
                                 <h3>
                                   <span className="text-amber-500 font-bold">Profile:</span> <a href={"https://discordapp.com/users/" + member.id} className="text-blue-500 hover:text-blue-700">Click Me</a>
@@ -53,7 +53,7 @@ module.exports.getServerSideProps = async ({ req }) => {
     if (req) {
       try {
   
-        let data = await axios.get('https://metrobots.xyz/team');
+        let data = await axios.get('https://catnip.metrobots.xyz/team');
   
         let users = data.data
 
@@ -65,11 +65,11 @@ module.exports.getServerSideProps = async ({ req }) => {
   
       } catch (e) {
   
-        return { title: 'Error Fetching' }
+        return { props: { title: 'Error Fetching' }}
   
       }
     } else {
   
-      return { title: 'Error Fetching' }
+      return { props: { title: 'Error Fetching' }}
     }
   }

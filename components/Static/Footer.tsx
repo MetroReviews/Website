@@ -1,6 +1,5 @@
 import Link from "next/link";
 import locales from "../../locales.config.js";
-import swr from "../../lib/swr";
 import { useEffect, useState, Fragment, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";

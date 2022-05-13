@@ -1,14 +1,4 @@
-import { useRef, useState, Fragment, useEffect } from "react";
-import Snackbar from "@windui/snackbar";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import Avatar from "@/root/components/Avatar";
-import { Menu, Transition, Switch } from "@headlessui/react";
-import swr from "../../lib/swr";
-import Tippy from "@tippyjs/react";
-import Countdown from '../../components/Countdown';
-import GiveawayCards from '../../components/Cards';
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { toast } from "react-toastify"
 import marked from "marked";
@@ -227,67 +217,67 @@ const BotPage = ({ $, bot, long, owner, fetch, list }) => {
 
 export async function getServerSideProps(context) {
 
-    const res = await fetch(`https://catnip.metrobots.xyz/bots/${context.params.botId}`);
-    const data = await res.json();
+  const res = await fetch(`https://catnip.metrobots.xyz/bots/${context.params.botId}`);
+  const data = await res.json();
 
-    const ownerFetch = await fetch(`https://api.fateslist.xyz/blazefire/${data.owner}`);
-    const owner = await ownerFetch.json();
+  if (!data) {
+      return {
+          notFound: true,
+      }
+  }
 
-    const botInfo = await fetch(`https://api.fateslist.xyz/blazefire/${context.params.botId}`)
-    const bot_info = await botInfo.json();
+  const ownerFetch = await fetch(`https://api.fateslist.xyz/blazefire/${data.owner}`);
+  const owner = await ownerFetch.json();
 
-    const lists = await fetch(`https://catnip.metrobots.xyz/list/${data.list_source}`)
-    const list = await lists.json();
+  const botInfo = await fetch(`https://api.fateslist.xyz/blazefire/${context.params.botId}`)
+  const bot_info = await botInfo.json();
 
-    marked.setOptions({
-        gfm: true,
-        tables: true,
-        breaks: true,
-        pedantic: true,
-        sanitize: false,
-        smartLists: true,
-        smartyPants: true
-    });
+  const lists = await fetch(`https://catnip.metrobots.xyz/list/${data.list_source}`)
+  const list = await lists.json();
 
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
+  marked.setOptions({
+      gfm: true,
+      tables: true,
+      breaks: true,
+      pedantic: true,
+      sanitize: false,
+      smartLists: true,
+      smartyPants: true
+  });
 
-    const content = await sanitize(marked.parse(data.long_description), {
-          "allowedAttributes": {
-          "a": ["href", "name", "target"],
-          "iframe": ["allowfullscreen", "frameborder", "src"],
-          "img": ["src"],
-        },
-        "allowedSchemes": ["http", "https", "mailto"],
-        "allowedTags": [
-          "a", "article", "b", "blockquote", "br", "caption", "code", "del", "details", "div", "em",
-          "h1", "h2", "h3", "h4", "h5", "h6", "hr", "i", "img", "ins", "kbd", "li", "main", "ol",
-          "p", "pre", "section", "span", "strike", "strong", "sub", "summary", "sup", "table",
-          "tbody", "td", "th", "thead", "tr", "u", "ul"
-        ],
-        "filter": null,
-        "transformText": null
-    })
+  const content = await sanitize(marked.parse(data.long_description), {
+        "allowedAttributes": {
+        "a": ["href", "name", "target"],
+        "iframe": ["allowfullscreen", "frameborder", "src"],
+        "img": ["src"],
+      },
+      "allowedSchemes": ["http", "https", "mailto"],
+      "allowedTags": [
+        "a", "article", "b", "blockquote", "br", "caption", "code", "del", "details", "div", "em",
+        "h1", "h2", "h3", "h4", "h5", "h6", "hr", "i", "img", "ins", "kbd", "li", "main", "ol",
+        "p", "pre", "section", "span", "strike", "strong", "sub", "summary", "sup", "table",
+        "tbody", "td", "th", "thead", "tr", "u", "ul"
+      ],
+      "filter": null,
+      "transformText": null
+  })
 
-    await content
-      .replace(/\r\n|\r/g, '\n')
-      .replace(/\t/g, '    ')
-      .replace(/[\w\<][^\n]*\n+/g,function(m){
-      return /\n{2}/.test(m) ? m : m.replace(/\s+$/,"")+"  \n";
-    })
+  await content
+    .replace(/\r\n|\r/g, '\n')
+    .replace(/\t/g, '    ')
+    .replace(/[\w\<][^\n]*\n+/g,function(m){
+    return /\n{2}/.test(m) ? m : m.replace(/\s+$/,"")+"  \n";
+  })
 
-    return {
-        props: {
-            bot: data,
-            owner: owner,
-            fetch: bot_info,
-            list: list,
-            long: content.replace(/(\r\n|\n\r|\r|\n)/g, '<br />').replace(/(---)/g, '<hr />')
-        }
-    }
+  return {
+      props: {
+          bot: data,
+          owner: owner,
+          fetch: bot_info,
+          list: list,
+          long: content.replace(/(\r\n|\n\r|\r|\n)/g, '<br />').replace(/(---)/g, '<hr />')
+      }
+  }
 
 }
 

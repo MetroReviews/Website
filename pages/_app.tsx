@@ -2,11 +2,9 @@ import "../public/css/global.css";
 import "../public/css/tippy.css";
 import "../public/css/customColors.css";
 import "tailwindcss/tailwind.css";
-import NProgress from "nprogress";
 import Metro from "../Metro.config";
 import Router, { useRouter } from "next/router";
 import Head from "next/head";
-import Script from "next/script";
 import "react-toastify/dist/ReactToastify.css";
 
 import Header from "../components/Static/Header";
@@ -123,10 +121,6 @@ export default function MetroApp({ Component, pageProps }) {
         <ToastContainer theme="dark" position="bottom-right" transition={Slide} />
         <Footer $={locale} />
       </main>
-      <div>
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
-      </div>
     </div>
     </ThemeProvider>
     </>

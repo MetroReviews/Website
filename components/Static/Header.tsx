@@ -1,6 +1,5 @@
 import locales from "../../locales.config.js";
 import Link from "next/link";
-import swr from "../../lib/swr";
 import { useEffect, useState, Fragment, useRef } from "react";
 import { useRouter } from "next/router";
 import { Menu, Transition, Popover } from '@headlessui/react';
@@ -92,7 +91,7 @@ const Header = ({ $, NavItems }) => {
         <>
           {banner && <div className="bg-amber-900/20 py-2 px-4 rounded-xl mt-5 md:flex items-center md:justify-between">
               <div className="flex items-center space-x-4">
-                <img className="w-8 h-8" src="https://serity.me/img/serity-logo.png" />
+                <img className="w-8 h-8" src="/img/information.webp" />
                 <h1 className="font-light text-zinc-200">
                   <b className="font-semibold text-white">Welcome</b> to Metro Reviews. <b className="font-semibold text-white">This website is in Open Beta please let us know if you experience any issues.</b>
                 </h1>

@@ -15,13 +15,19 @@ module.exports = withPWA({
         skipWaiting: true,
         disable: process.env.NODE_ENV == "development"
     },
+    env: {
+      CLIENT_ID: process.env.CLIENT_ID,
+      CLIENT_SECRET: process.env.CLIENT_SECRET,
+      APP_URI: process.env.APP_URI,
+      JWT_SECRET: process.env.JWT_SECRET
+    },
     async redirects() {
         return [
           {
             source: '/github',
             destination: 'https://github.com/MetroReviews/Website/issues/new',
             permanent: true,
-          },
+          }
         ]
       },
 });
