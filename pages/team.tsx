@@ -14,8 +14,6 @@ export default function Team({ $ }) {
 
   const { data: team }: { data?: team[] } = useSWR("team");
 
-  if (!team) toast.success('Member Data is loading. If this hangs please refresh the page')
-
     return (
         <div>
             <div className="pt-10 mx-auto flex flex-col items-center justify-center">
