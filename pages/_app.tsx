@@ -6,6 +6,7 @@ import Metro from "../Metro.config";
 import Router, { useRouter } from "next/router";
 import Head from "next/head";
 import "react-toastify/dist/ReactToastify.css";
+import { SWRConfig } from "swr";
 
 import Header from "../components/Static/Header";
 import Footer from "../components/Static/Footer";
@@ -50,13 +51,13 @@ export default function MetroApp({ Component, pageProps }) {
     const width = window.innerWidth
       ? window.innerWidth
       : document.documentElement.clientWidth
-      ? document.documentElement.clientWidth
-      : screen.width;
+        ? document.documentElement.clientWidth
+        : screen.width;
     const height = window.innerHeight
       ? window.innerHeight
       : document.documentElement.clientHeight
-      ? document.documentElement.clientHeight
-      : screen.height;
+        ? document.documentElement.clientHeight
+        : screen.height;
 
     const systemZoom = width / window.screen.availWidth;
     const left = (width - w) / 2 / systemZoom + dualScreenLeft;
@@ -73,7 +74,7 @@ export default function MetroApp({ Component, pageProps }) {
           `
     );
   };
-  
+
   const NavItems = [
     {
       link: true,
@@ -99,30 +100,35 @@ export default function MetroApp({ Component, pageProps }) {
   ];
 
   return (
-    <>
-    <ThemeProvider defaultTheme='violet'>
-    <div className="h-screen relative border-t-4 border-amber-600">
-      <div
-        className="bg-gradient-to-br z-10 opacity-[50%] absolute top-0 w-full from-amber-600 to-transparent"
-        style={{ height: "500px" }}
-      />
-      <Head>
-        <title>
-          {router.pathname && Metro.titles[router.pathname]
-            ? Metro.titles[router.pathname] + Metro.titleSuffix
-            : "Loading..." + Metro.titleSuffix}
-        </title>
-      </Head>
-      <main className="transition-all duration-200 z-10 absolute inset-0 px-5 h-screen w-full mx-auto">
-        <Header $={locale} NavItems={NavItems} />
-        <div className="block px-5 md:px-0">
-          <Component $={locale} {...pageProps} />
+    <SWRConfig
+      value={{
+        fetcher: (url: string) =>
+          fetch(`/api/${url}`).then((res) => res.json()),
+      }}
+    >
+      <ThemeProvider defaultTheme='violet'>
+        <div className="h-screen relative border-t-4 border-amber-600">
+          <div
+            className="bg-gradient-to-br z-10 opacity-[50%] absolute top-0 w-full from-amber-600 to-transparent"
+            style={{ height: "500px" }}
+          />
+          <Head>
+            <title>
+              {router.pathname && Metro.titles[router.pathname]
+                ? Metro.titles[router.pathname] + Metro.titleSuffix
+                : "Loading..." + Metro.titleSuffix}
+            </title>
+          </Head>
+          <main className="transition-all duration-200 z-10 absolute inset-0 px-5 h-screen w-full mx-auto">
+            <Header $={locale} NavItems={NavItems} />
+            <div className="block px-5 md:px-0">
+              <Component $={locale} {...pageProps} />
+            </div>
+            <ToastContainer theme="dark" position="bottom-right" transition={Slide} />
+            <Footer $={locale} />
+          </main>
         </div>
-        <ToastContainer theme="dark" position="bottom-right" transition={Slide} />
-        <Footer $={locale} />
-      </main>
-    </div>
-    </ThemeProvider>
-    </>
+      </ThemeProvider>
+    </SWRConfig>
   );
 }

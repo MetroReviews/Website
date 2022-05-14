@@ -1,7 +1,18 @@
 import axios from "axios"
 import { toast } from "react-toastify"
+import useSWR from "swr";
 
-export default function Team({ $, team }) {
+interface team{
+  username: string;
+  id: string;
+  avatar: string;
+  is_list_owner: boolean;
+  sudo: boolean;
+  roles: string[];
+}
+export default function Team({ $ }) {
+
+  const { data: team }: { data?: team[] } = useSWR("team");
 
   if (!team) toast.success('Member Data is loading. If this hangs please refresh the page')
 
@@ -48,28 +59,3 @@ export default function Team({ $, team }) {
         </div>
     );
 };
-
-module.exports.getServerSideProps = async ({ req }) => {
-    if (req) {
-      try {
-  
-        let data = await axios.get('https://catnip.metrobots.xyz/team');
-  
-        let users = data.data
-
-        let owner;
-        let sudo;
-        let review;
-  
-        return { props: { team: users }}
-  
-      } catch (e) {
-  
-        return { props: { title: 'Error Fetching' }}
-  
-      }
-    } else {
-  
-      return { props: { title: 'Error Fetching' }}
-    }
-  }
