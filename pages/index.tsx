@@ -1,12 +1,21 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify"
+import useSWR from "swr";
 
-export default function Index({ $, title, stats }) {
+interface lists {
+  name: string;
+  icon: string;
+  state: number;
+  domain: string;
+  id: string;
+  description: string;
+}
+
+export default function Index({ $, title }) {
+  const { data: stats }: { data?: lists[] } = useSWR("list");
   const [enterLoading, setEnterLoading] = useState(false);
   const mainButton = useRef(null);
-
-  if (!stats) toast.success('List Data has been loaded successfully but our loader is known to hang. If this happens simply refresh the page')
 
   const Loading = () => <i className="fa fa-spinner-third fa-spin text-white" />;
 
@@ -95,22 +104,4 @@ export default function Index({ $, title, stats }) {
         }
       </>
   );
-}
-
-module.exports.getServerSideProps = async ({ context }) => {
-
-  const res = await fetch('https://catnip.metrobots.xyz/lists');
-  const lists = await res.json();
-
-  if (!lists) {
-    return {
-      notFound: true
-    }
-  }
-
-  return {
-    props: { 
-      stats: lists
-    }
-  }
 }
