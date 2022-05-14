@@ -119,8 +119,10 @@ export default function MetroApp({ Component, pageProps }) {
                 : "Loading..." + Metro.titleSuffix}
             </title>
           </Head>
-          <main className="transition-all duration-200 z-10 absolute inset-0 px-5 h-screen w-full mx-auto">
-            <Header $={locale} NavItems={NavItems} />
+          <main className="transition-all duration-200 z-10 absolute inset-0 h-screen w-full mx-auto">
+            <div className="px-5">
+              <Header $={locale} NavItems={NavItems} />
+            </div>
             <div className="block px-5 md:px-0">
               <Component $={locale} {...pageProps} />
             </div>
