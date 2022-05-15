@@ -23,13 +23,9 @@ const NotFound = () => {
           name="Metro Reviews"
         />
         <div className="max-w-7xl text-center py-20 mx-auto">
-            <h1 className="text-4xl font-extrabold text-white">500</h1>
+            <h1 className="text-4xl font-extrabold text-white">404</h1>
             <p className="text-xl font-thin text-white text-opacity-75">
                 {messages[Math.floor(Math.random()*messages.length)]}
-                {" "}
-                <Link href="/github"><span className="underline hover:text-blue-500 hover:underline transition-all duration-200 cursor-pointer">GitHub Issue</span></Link>
-                <br />
-                With any useful errors from your Browser Console
             </p>
             <button
                 className="w-42 shadow-lg mt-2 shadow-amber-600/20 rounded-xl py-2 font-medium px-7 text-zinc-900 bg-amber-400 hover:bg-opacity-50 transition duration-200"
