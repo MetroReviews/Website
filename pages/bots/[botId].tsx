@@ -1,4 +1,4 @@
-import Avatar from "@/root/components/Avatar";
+import Avatar from "@/root/components/Interface/Avatar";
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { toast } from "react-toastify"
 import marked from "marked";

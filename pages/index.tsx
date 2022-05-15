@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify"
 import useSWR from "swr";
+import { MetaTags } from "../components/Header/Meta";
 
 interface lists {
   name: string;
@@ -21,7 +22,12 @@ export default function Index({ $, title }) {
 
   return (
     <>
-    
+      <MetaTags
+        title="Home | Metro Reviews"
+        description="The Dedicated Community of Discord Bot Lists. We provide a simple solution for allowing all Bot Lists to Approve, Deny and even Cross Add Bots."
+        image="/img/logo.webp"
+        name="Metro Reviews"
+      />
       <div className="py-20 mb-40 max-w-3xl mx-auto">
         <p className="animateHeader text-4xl font-extrabold text-center text-white" dangerouslySetInnerHTML={{ __html: $.title }} />
         <p className="animateHeader text-white text-opacity-50 text-center mt-5">

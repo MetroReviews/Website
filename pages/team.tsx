@@ -1,6 +1,9 @@
 import axios from "axios"
+import Link from 'next/link';
 import { toast } from "react-toastify"
+import { MetaTags } from "../components/Header/Meta";
 import useSWR from "swr";
+import { useRef, useState } from "react";
 
 interface team{
   username: string;
@@ -11,20 +14,41 @@ interface team{
   roles: string[];
 }
 export default function Team({ $ }) {
-
-  const { data: team }: { data?: team[] } = useSWR("team");
+    const [enterLoading, setEnterLoading] = useState(false);
+    const mainButton = useRef(null);
+    const { data: team }: { data?: team[] } = useSWR("team");
 
     return (
+        <>
+        <MetaTags
+          title="Team | Metro Reviews"
+          description="All of the Bot List Staff and Community Members who represent Metro."
+          image="/img/logo.webp"
+          name="Metro Reviews"
+        />
         <div>
-            <div className="pt-10 mx-auto flex flex-col items-center justify-center">
-                <p className="animateHeader text-4xl font-extrabold text-white">
-                    {$.team.title}
-                </p>
-                <p dangerouslySetInnerHTML={{ __html: $.team.description }} className="animateHeader text-white text-opacity-50 text-center mt-5">
-                    
-                </p>
-            </div>
-            <div className="lg:max-w-screen-lg mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 w-auto">
+            <div className="overflow-hidden relative bg-background flex mx-auto items-center justify-center">
+                <div className="mx-auto max-w-7xl">
+                    <div className="relative z-10 pb-8 bg-background sm:pb-16 md:pb-20 lg:pb-28 lg:w-full lg:max-w-2xl xl:pb-32">
+                        <main className="px-4 mx-auto mt-10 w-full max-w-7xl sm:px-6 sm:mt-12 md:mt-16 lg:px-8 lg:mt-20 xl:mt-28">
+                            <div className="sm:text-center lg:text-left">
+                            <h1 className="text-4xl font-extrabold tracking-tight text-slate-300 sm:text-5xl md:text-6xl">
+                              <span className="block xl:inline">
+                                 { $.team.title1 }
+                              </span>{" "}
+                              <span className="block text-amber-500 xl:inline">
+                                 { $.team.title2 }
+                              </span>
+                            </h1>
+                              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+                                 { $.team.description }
+                              </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>  
+            <div className="lg:max-w-screen-lg mt-20 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 w-auto">
                 {!team ? <div className="col-span-1 md:col-span-2 flex items-center justify-center">
                     <i className="fad fa-spinner-third fa-spin text-white text-2xl" />
                 </div> : (team.map((member, index) => (
@@ -55,5 +79,6 @@ export default function Team({ $ }) {
                 )))}
             </div>
         </div>
+        </>
     );
 };

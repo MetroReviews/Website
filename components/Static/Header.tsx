@@ -4,7 +4,7 @@ import { useEffect, useState, Fragment, useRef } from "react";
 import { useRouter } from "next/router";
 import { Menu, Transition, Popover } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import Key from "../Key.jsx";
+import Key from "../Interface/Key.jsx";
 import { useTheme } from 'next-themes';
 import Window from "@windui/window";
 

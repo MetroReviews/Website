@@ -1,13 +1,20 @@
-import Avatar from "@/root/components/Avatar";
+import Avatar from "@/root/components/Interface/Avatar";
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import { MetaTags } from "@/root/components/Header/Meta";
 import { toast } from "react-toastify"
 import marked from "marked";
 import sanitize from "insane";
 
-
 const ListPage = ({ $, list, desc }) => {
+
   return (
     <>
+      <MetaTags
+        title={list.name + " | Metro Reviews"}
+        description={"View " + list.name + "'s Page on Metro Reviews."}
+        image="/img/logo.webp"
+        name="Metro Reviews"
+      />
       <div className="overflow-hidden relative bg-background flex mx-auto items-center justify-center">
           <div className="mx-auto max-w-7xl">
               <div className="relative z-10 pb-8 bg-background sm:pb-16 md:pb-20 lg:pb-28 lg:w-full lg:max-w-2xl xl:pb-32">
@@ -46,11 +53,9 @@ const ListPage = ({ $, list, desc }) => {
                    { list.domain && (
                     <a href={list.domain} className="flex items-center shadow-xl" target="_blank">
                       <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
-                        <div className="has-tooltip inline">
                           <span className="tooltip rounded bg-amber-500 shadow-lg text-white p-1 -mt-8">View Website</span>
                              <i className="fas fa-globe" />
                         </div>
-                      </div>
                       <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                         <p className="line-clamp-1">Visit Website</p>
                       </div>

@@ -11,11 +11,14 @@ import { SWRConfig } from "swr";
 import Header from "../components/Static/Header";
 import Footer from "../components/Static/Footer";
 
+import { checkCookies, setCookies } from "cookies-next";
+
 import { Slide, ToastContainer } from "react-toastify";
 
 import '../lib/icons';
 
 import { ThemeProvider } from 'next-themes'
+import Cookies from "../components/Interface/Cookies";
 
 export default function MetroApp({ Component, pageProps }) {
   const router = useRouter();
@@ -93,13 +96,21 @@ export default function MetroApp({ Component, pageProps }) {
     {
       link: true,
       name: locale.navbar.lists,
-      icon: "fal fa-home",
-      activeIcon: "fa fa-home",
+      icon: "fas fa-list",
+      activeIcon: "fas fa-list",
       href: "/lists",
+    },
+    {
+      link: true,
+      name: locale.navbar.github,
+      icon: "fab fa-github",
+      activeIcon: "fab fa-github",
+      href: "https://github.com/MetroReviews",
     }
   ];
 
   return (
+    <>
     <SWRConfig
       value={{
         fetcher: (url: string) =>
@@ -112,13 +123,6 @@ export default function MetroApp({ Component, pageProps }) {
             className="bg-gradient-to-br z-10 opacity-[50%] absolute top-0 w-full from-amber-600 to-transparent"
             style={{ height: "500px" }}
           />
-          <Head>
-            <title>
-              {router.pathname && Metro.titles[router.pathname]
-                ? Metro.titles[router.pathname] + Metro.titleSuffix
-                : "Loading..." + Metro.titleSuffix}
-            </title>
-          </Head>
           <main className="transition-all duration-200 z-10 absolute inset-0 h-screen w-full mx-auto">
             <div className="px-5">
               <Header $={locale} NavItems={NavItems} />
@@ -127,10 +131,12 @@ export default function MetroApp({ Component, pageProps }) {
               <Component $={locale} {...pageProps} />
             </div>
             <ToastContainer theme="dark" position="bottom-right" transition={Slide} />
+            <Cookies />
             <Footer $={locale} />
           </main>
         </div>
       </ThemeProvider>
     </SWRConfig>
+    </>
   );
 }

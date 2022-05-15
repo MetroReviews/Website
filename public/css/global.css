@@ -458,3 +458,48 @@ code.embed-code {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+.cookieContainer {
+  border-radius: 4px;
+  background-color: #212121; 
+  border-radius: 0.5rem; 
+  position: fixed;
+  height: 11.4em;
+  width: 24em;
+  right: 8px;
+  padding: 19px 30px;
+  margin-bottom: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.cookieHeader {
+  color: white;
+  font-family: "m-normal";
+  letter-spacing: 0.08em;
+  font-size: 1.2em;
+}
+
+.cookieBtn {
+  letter-spacing: 0.08em;
+  padding: 5px 26px;
+  background-color: rgba(56, 78, 224, 1);
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.cookieP {
+  font-size: 0.9em;
+  color: rgba(189, 189, 189, 1);
+  font-weight: 400;
+}
+
+a.cookiePP {
+  color: rgb(75 98 255);
+}
+
+a.cookiePP:hover {
+  color: rgb(75 98 255);
+}
