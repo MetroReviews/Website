@@ -121,7 +121,7 @@ export default function Lists({ $ }) {
                 <div>
                   <div className="w-full">
                     {list.domain && (
-                      <a href={list.domain} className="flex items-center shadow-xl">
+                      <a href={list.domain} target="_blank" className="flex items-center shadow-xl">
                         <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                           <i className="fas fa-globe" />
                         </div>
@@ -130,7 +130,7 @@ export default function Lists({ $ }) {
                         </div>
                       </a>
                     )}
-                    <a href={'/lists/' + list.id} target="_blank" className="flex items-center shadow-xl">
+                    <a href={'/lists/' + list.id} className="flex items-center shadow-xl">
                       <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                         <i className="fas fa-info-circle" />
                       </div>
