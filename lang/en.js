@@ -122,7 +122,7 @@ module.exports = {
         desc: 'All the amazing Bot Lists that use our services.',
         buttons: {
             support: 'Get Support',
-            home: 'Go Home'
+            home: 'Apply Now'
         },
         info: {
             name: '{list_name}',
