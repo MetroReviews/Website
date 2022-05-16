@@ -71,7 +71,7 @@ export default function Team({ $ }) {
                                   <span className="text-amber-500 font-bold">Staff In:</span>  {member.roles.join(", ")}
                                 </h3>
                                 <h3>
-                                  <span className="text-amber-500 font-bold">Profile:</span> <a href={"https://discordapp.com/users/" + member.id} className="text-blue-500 hover:text-blue-700">Click Me</a>
+                                  <span className="text-amber-500 font-bold">Profile:</span> <a href={"https://discordapp.com/users/" + member.id} target="_blank" className="text-blue-500 hover:text-blue-700">Click Me</a>
                                 </h3>
                             </div>
                         </div>
