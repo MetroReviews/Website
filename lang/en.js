@@ -19,7 +19,7 @@ module.exports = {
                 items: {
                     team: 'Team',
                     lists: 'Lists',
-                    faqs: 'FAQ’s'
+                    bots: 'Bots'
                 }
             },
             support: {
