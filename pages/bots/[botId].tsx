@@ -223,7 +223,7 @@ const BotPage = ({ $, bot, long, owner, fetch, list }) => {
             <div className="mt-5">
               <div className="text-center w-full h-auto bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg p-6 shadow-md mx-auto" id="widgets">
                 <div className="px-4 mx-auto w-auto sm:px-6 lg:px-8 lg:text-center">
-                    <div className="col-span-9 pt-5 lg:pt-0 w-auto" dangerouslySetInnerHTML={{ __html: long }} />
+                    <div className="col-span-9 pt-5 lg:pt-0 w-auto word-break: break-all;" dangerouslySetInnerHTML={{ __html: long }} />
                 </div>
               </div>
             </div>
