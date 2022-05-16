@@ -120,10 +120,10 @@ const Footer = ({ $ }) => {
                         <Link href={"/faqs"}>
                           <a className="text-white hover:text-amber-500">
                             <FontAwesomeIcon
-                              icon={["fas", "info-circle"]}
+                              icon={["fas", "robot"]}
                               className="mr-2"
                             />
-                            { $.footer.menus.info.items.faqs }
+                            { $.footer.menus.info.items.bots }
                           </a>
                         </Link>
                       </li>
