@@ -346,6 +346,19 @@ module.exports = {
             support: 'Get Support',
             home: 'Go Home'
         },
+        navigation: {
+            title: 'Navigation',
+            desc: 'Naviguez jusqu’à la section souhaitée',
+            terms: 'Conditions',
+            use: 'Licence d’utilisation',
+            discl: 'Avis de non-responsabilité',
+            limits: 'Limites',
+            revise: 'Révisions et errata',
+            third: 'Liens vers des sites tiers',
+            modify: 'Modifications du site',
+            privacy: 'Votre vie privée',
+            law: 'Loi applicable'
+        },
         sections: {
             terms: {
                 title: 'Conditions',
