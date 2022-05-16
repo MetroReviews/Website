@@ -167,7 +167,7 @@ export default function Requirements({ $ }) {
                         { $.bot_rules.sections.br.title }
                       </h2>
                       
-                      <ul className="mt-1 text-amber-500/50 font-medium text-base ml-10 mb-5 list-disc">
+                      <ul className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>{ $.bot_rules.sections.br.list.items.item1 }</li>
                           <li>{ $.bot_rules.sections.br.list.items.item2 }</li>
                           <li>{ $.bot_rules.sections.br.list.items.item3 }</li>
@@ -187,7 +187,7 @@ export default function Requirements({ $ }) {
                         { $.bot_rules.sections.cr.title }
                       </h2>
 
-                      <ul className="mt-1 text-amber-500/50 font-medium text-base ml-10 mb-5 list-disc">
+                      <ul className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>{ $.bot_rules.sections.cr.list.items.item1 }</li>
                           <li>{ $.bot_rules.sections.cr.list.items.item2 }</li>
                           <li>{ $.bot_rules.sections.cr.list.items.item3 }</li>
@@ -204,7 +204,7 @@ export default function Requirements({ $ }) {
                         { $.bot_rules.sections.us.title }
                       </h2>
 
-                      <ul className="mt-1 text-amber-500/50 font-medium text-base ml-10 mb-5 list-disc">
+                      <ul className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>{ $.bot_rules.sections.us.list.items.item1 }</li>
                           <li>{ $.bot_rules.sections.us.list.items.item2 }</li>
                           <li>{ $.bot_rules.sections.us.list.items.item3 }</li>
@@ -220,7 +220,7 @@ export default function Requirements({ $ }) {
                         { $.bot_rules.sections.ceq.title }
                       </h2>
 
-                      <ul className="mt-1 text-amber-500/50 font-medium text-base ml-10 mb-5 list-disc">
+                      <ul className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>{ $.bot_rules.sections.ceq.list.items.item1 }</li>
                           <li>{ $.bot_rules.sections.ceq.list.items.item2 }</li>
                           <li>{ $.bot_rules.sections.ceq.list.items.item3 }</li>
