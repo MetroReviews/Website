@@ -7,8 +7,10 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Tippy from '@tippyjs/react';
 import axios from 'axios';
+import { setCookies } from "cookies-next";
 
 const Footer = ({ $ }) => {
+
     return (
       <>
 
@@ -117,7 +119,7 @@ const Footer = ({ $ }) => {
                         </Link>
                       </li>
                       <li>
-                        <Link href={"/faqs"}>
+                        <Link href={"/bots"}>
                           <a className="text-white hover:text-amber-500">
                             <FontAwesomeIcon
                               icon={["fas", "robot"]}

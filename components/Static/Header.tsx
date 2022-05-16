@@ -7,6 +7,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 import Key from "../Interface/Key.jsx";
 import { useTheme } from 'next-themes';
 import Window from "@windui/window";
+import { setCookies } from "cookies-next";
 
 const MobileNavbar = ({ Menu, open, setOpen, NavItems }) => {
     const { theme, setTheme } = useTheme();
@@ -103,6 +104,7 @@ const Header = ({ $, NavItems }) => {
                 <a className="cursor-pointer" onClick={() => {
                   if (typeof localStorage == "undefined") return;
                   localStorage.setItem("$Metro_close_banner", '1');
+                  setCookies('$Metro_close_banner', 'true');
                   setBanner(false);
                 }}>
                   <i className="far fa-x text-sm text-white" />
@@ -187,7 +189,10 @@ const Header = ({ $, NavItems }) => {
                                     {colorsThemes.map((th, thIdx) => (
                                     <Menu.Item key={thIdx}>
                                             <button
-                                            onClick={() => ChangeColor(th.id)}
+                                            onClick={() => { 
+                                                ChangeColor(th.id)
+                                                setCookies('$Metro_theme', `${th.label}`)
+                                            }}
                                             className={`group flex rounded-md items-center w-full px-3 py-2 transition-all duration-150 ${theme === th.id ? `text-white bg-500 shadow-md shadow-violet-500/10` : 'text-black/75 dark:text-white/75 hover:text-black/100 dark:hover:text-white/100 hover:bg-gray-100/50 dark:hover:bg-gray-800/20'} `}
                                             >
                                             <div className="w-full flex items-center justify-between">

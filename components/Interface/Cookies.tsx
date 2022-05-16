@@ -16,8 +16,8 @@ export default function Cookies() {
             buttonText="Accept Cookies"
             expires={365}
              onAccept={() => {
-               setCookies('$Metro_locale', 'EN:english' , { maxAge:  365 })
-               setCookies('$Metro_theme', 'DEF:violet' , { maxAge:  365 })
+               setCookies('$Metro_locale', 'EN:english' , { maxAge:  60 * 1000 * 24  })
+               setCookies('$Metro_theme', 'DEF:violet' , { maxAge:  60 * 1000 * 24  })
                setCookies('$Metro_sess', `${uuidv4()}` , { maxAge:   60 * 1000 * 24 })
              }}
           >

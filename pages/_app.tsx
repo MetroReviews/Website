@@ -7,6 +7,7 @@ import Router, { useRouter } from "next/router";
 import Head from "next/head";
 import "react-toastify/dist/ReactToastify.css";
 import { SWRConfig } from "swr";
+import Script from 'next/script';
 
 import Header from "../components/Static/Header";
 import Footer from "../components/Static/Footer";
@@ -118,6 +119,19 @@ export default function MetroApp({ Component, pageProps }) {
 
   return (
     <>
+
+      <Script id="gtag" strategy="lazyOnload" src='https://www.googletagmanager.com/gtag/js?id=G-F6Q4SP318X' />
+      <Script id="lazy" strategy="lazyOnload">
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-F6Q4SP318X', {
+           page_path: window.location.pathname,
+          });
+        `}
+      </Script>
+
     <SWRConfig
       value={{
         fetcher: (url: string) =>
