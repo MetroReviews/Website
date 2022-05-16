@@ -37,6 +37,7 @@ export default function Index({ $, title }) {
               href={"https://github.com/MetroReviews/support"}
             >
               <a
+                target="_blank"
                 onClick={() => setEnterLoading(true)}
                 ref={mainButton}
                 className={
@@ -50,6 +51,7 @@ export default function Index({ $, title }) {
               href={"https://enroll.metrobots.xyz"}
             >
               <a
+                target="_blank"
                 onClick={() => setEnterLoading(true)}
                 ref={mainButton}
                 className={
