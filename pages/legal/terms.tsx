@@ -21,14 +21,14 @@ export default function Terms({ $ }) {
               <div className="sm:text-center lg:text-left">
                 <h1 className="text-4xl font-extrabold tracking-tight text-slate-300 sm:text-5xl md:text-6xl">
                   <span className="block xl:inline">
-                    Terms of
+                    { $.terms.title1 }
                   </span>{" "}
                   <span className="block text-amber-500 xl:inline">
-                    Service
+                    { $.terms.title2 }
                   </span>
                 </h1>
                 <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                  Its boring but you should probably read this.
+                  { $.terms.description }
                 </p>
                 <div className="animateHeader mt-10 mb-10 flex flex-wrap items-center justify-center gap-x-4">
                     <Link className="mt-4 mb-4" href={"https://github.com/MetroReviews/support"}>
@@ -40,7 +40,7 @@ export default function Terms({ $ }) {
                             "flex items-center px-6 justify-center gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white " +
                             ("w-auto")
                           }
-                        > Get Support</a>
+                        > { $.terms.buttons.support }</a>
                     </Link>
                     <Link className="mt-4 mb-4" href={"/"}>
                     <a
@@ -51,7 +51,7 @@ export default function Terms({ $ }) {
                         "flex items-center px-6 justify-center gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white " +
                         ("w-auto")
                       }
-                    > Go Home</a>
+                    > { $.terms.buttons.home }</a>
                     </Link>
                 </div>
               </div>
@@ -67,10 +67,10 @@ export default function Terms({ $ }) {
             <br />
               <p className="text-xl font-medium text-white text-center">
                   <i className="fas fa-info-circle text-amber-400 mr-2" />
-                  Navigation
+                  { $.terms.navigation.title }
               </p>
               <p className="text-white text-sm text-opacity-50 mb-5 text-center">
-                  Navigate to your desired section
+                  { $.terms.navigation.desc }
               </p>
               <hr />
               <div className="mt-5">
@@ -80,7 +80,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#terms">Terms</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#terms">{ $.terms.navigation.terms }</a>
                           </li>
                         </ol>
                       </p>
@@ -91,7 +91,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#use_license">Use License</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#use_license">{ $.terms.navigation.use }</a>
                           </li>
                         </ol>
                       </p>
@@ -102,7 +102,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#disclaimer">Disclaimer</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#disclaimer">{ $.terms.navigation.discl }</a>
                           </li>
                         </ol>
                       </p>
@@ -113,7 +113,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#limitations">Limitations</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#limitations">{ $.terms.navigation.limits }</a>
                           </li>
                         </ol>
                       </p>
@@ -124,7 +124,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#revisions">Revisions and Errata</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#revisions">{ $.terms.navigation.revise }</a>
                           </li>
                         </ol>
                       </p>
@@ -135,7 +135,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#links">Third-Party Links</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#links">{ $.terms.navigation.third }</a>
                           </li>
                         </ol>
                       </p>
@@ -146,7 +146,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#modifications">Site Modifications</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#modifications">{ $.terms.navigation.modify }</a>
                           </li>
                         </ol>
                       </p>
@@ -157,7 +157,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#privacy">Your Privacy</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#privacy">{ $.terms.navigation.privacy }</a>
                           </li>
                         </ol>
                       </p>
@@ -168,7 +168,7 @@ export default function Terms({ $ }) {
                       <p className="line-clamp-1">
                         <ol className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
                           <li>
-                            <a className="text-amber-500 hover:text-amber-800" href="#laws">Governing Law</a>
+                            <a className="text-amber-500 hover:text-amber-800" href="#laws">{ $.terms.navigation.law }</a>
                           </li>
                         </ol>
                       </p>
@@ -187,95 +187,65 @@ export default function Terms({ $ }) {
                 <div className="px-4 mx-auto w-auto sm:px-6 lg:px-8">
                     <div className="col-span-9 pt-5 lg:pt-0 w-auto">
                       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:text-center"></div>
-                      <p className="text-sm text-white/30 mb-1">Last Update: 05/13/2022</p>
-                      <h2 className="mt-4 text-white font-bold text-3xl" id="terms">1. Terms</h2>
+                      <p className="text-sm text-white/30 mb-1">{ $.terms.updated }</p>
+                      <h2 className="mt-4 text-white font-bold text-3xl" id="terms">1. { $.terms.sections.terms.title }</h2>
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        By accessing this Website, accessible from https://metrobots.xyz, you are
-                        agreeing to be bound by these Website Terms and Conditions of Use and
-                        agree that you are responsible for the agreement with any applicable
-                        local laws. If you disagree with any of these terms, you are prohibited
-                        from accessing this site. The materials contained in this Website are
-                        protected by copyright and trade mark law.
+                        { $.terms.sections.terms.texts }
                       </a>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="use_license">2. Use License</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="use_license">2. { $.terms.sections.license.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        Permission is granted to temporarily download one copy of the materials
-                        on Metro Review's Website for personal, non-commercial transitory viewing
-                        only. This is the grant of a license, not a transfer of title, and under
-                        this license you may not:
+                        { $.terms.sections.license.texts }
                       </a>
 
                       <ul className="mt-1 text-white/50 font-medium text-base ml-10 mb-5 list-disc">
-                        <li>modify or copy the materials;</li>
-                        <li>use the materials for any commercial purpose or for any public display;</li>
-                        <li>attempt to reverse engineer any software contained on Metro Review's Website or API;</li>
-                        <li>remove any copyright or other proprietary notations from the materials; or</li>
-                        <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
+                        <li>{ $.terms.sections.license.list.item_1 }</li>
+                        <li>{ $.terms.sections.license.list.item_2 }</li>
+                        <li>{ $.terms.sections.license.list.item_3 }</li>
+                        <li>{ $.terms.sections.license.list.item_4 }</li>
+                        <li>{ $.terms.sections.license.list.item_5 }</li>
                       </ul>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="disclaimer">3. Disclaimer</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="disclaimer">3. { $.terms.sections.disclaimer.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        All the materials on Metro Review’s Website are provided "as is". Metro Review makes
-                        no warranties, may it be expressed or implied, therefore negates all
-                        other warranties. Furthermore, Metro Review does not make any representations
-                        concerning the accuracy or reliability of the use of the materials on
-                        its Website or otherwise relating to such materials or any sites linked
-                        to this Website.
+                        { $.terms.sections.disclaimer.texts }
                       </a>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="limitations">4. Limitations</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="limitations">4. { $.terms.sections.limitations.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        Metro Review or its suppliers will not be hold accountable for any damages
-                        that will arise with the use or inability to use the materials on
-                        Metro Review’s Website, even if Metro Review or an authorize representative of this
-                        Website has been notified, orally or written, of the possibility of such
-                        damage. Some jurisdiction does not allow limitations on implied
-                        warranties or limitations of liability for incidental damages, these
-                        limitations may not apply to you. 
+                        { $.terms.sections.limitations.texts }
                       </a>
 
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="revisions">5. Revisions and Errata</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="revisions">5. { $.terms.sections.revisions.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        The materials appearing on Metro Review’s Website may include technical,
-                        typographical, or photographic errors. Metro Review will not promise that any
-                        of the materials in this Website are accurate, complete, or current.
-                        Metro Review may change the materials contained on its Website at any time
-                        without notice. Metro Review does not make any commitment to update the
-                        materials.
+                        { $.terms.sections.revisions.texts }
                       </a>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="links">6. Links</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="links">6. { $.terms.sections.links.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        Metro Review has not reviewed all of the sites linked to its Website and is
-                        not responsible for the contents of any such linked site. The presence
-                        of any link does not imply endorsement by Metro Review of the site. The use of
-                        any linked website is at the user’s own risk.
+                        { $.terms.sections.links.texts }
                       </a>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="modifications">7. Site Modifications</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="modifications">7. { $.terms.sections.modifications.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        Metro Review may revise these Terms of Use for its Website at any time without
-                        prior notice. By using this Website, you are agreeing to be bound by the
-                        current version of these Terms and Conditions of Use.
+                        { $.terms.sections.modifications.texts }
                       </a>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="privacy">8. Your Privacy</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="privacy">8. { $.terms.sections.privacy.title }</h2>
 
-                      <a className="mt-1 text-white/50 font-medium text-lg">Please read our <Link href="/legal/privacy"><span className="hover:text-blue-500 hover:underline transition-all duration-200 cursor-pointer">Privacy Policy</span></Link>.</a>
+                      <a className="mt-1 text-white/50 font-medium text-lg">{ $.terms.sections.privacy.texts.base } <Link href="/legal/privacy"><span className="hover:text-blue-500 hover:underline transition-all duration-200 cursor-pointer">{ $.terms.sections.privacy.texts.link }</span></Link>.</a>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="laws">9. Governing Law</h2>
+                      <h2 className="mt-10 text-white font-bold text-3xl" id="laws">9. { $.terms.sections.laws.title }</h2>
 
                       <a className="mt-1 text-white/50 font-medium text-lg">
-                        Any claim related to Metro Review's Website shall be governed by the laws of
-                        Canada without regards to its conflict of law provisions.
+                        { $.terms.sections.laws.texts }
                       </a>
                   </div>
                 </div>

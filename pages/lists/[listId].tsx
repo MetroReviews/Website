@@ -1,11 +1,26 @@
 import Avatar from "@/root/components/Interface/Avatar";
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { MetaTags } from "@/root/components/Header/Meta";
+import { NoDesc } from "@/root/components/Lists/NoDesc";
 import { toast } from "react-toastify"
 import marked from "marked";
 import sanitize from "insane";
+import { useState } from "react";
 
 const ListPage = ({ $, list, desc }) => {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const copyListID = () => {
+    if (navigator.clipboard.writeText(`${list.id}`)) {
+      setCopySuccess(true);
+    } else {
+      toast.error('Failed to Copy List ID');
+    }
+  }
+
+  setTimeout(() => {
+    setCopySuccess(false);
+  }, 7200);
 
   return (
     <>
@@ -78,16 +93,14 @@ const ListPage = ({ $, list, desc }) => {
                       </p>
                     </div>
                   </div>
-                <CopyToClipboard text={list.id} onCopy={() => toast.success('List Source ID has been copied to your clipboard!')}>
-                <button className="flex items-center shadow-xl w-full">
+                <button className="flex items-center shadow-xl w-full" onClick={copyListID}>
                     <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                         <i className="fas fa-id-card" />
                     </div>
                     <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
-                         <p className="line-clamp-1 text-left">Copy List ID</p>
+                         <p className="line-clamp-1 text-left">{copySuccess ? "Copied!" : "Copy List ID"}</p>
                     </div>
                 </button>
-                </CopyToClipboard>
                </div>
               </div>
            <br />
@@ -99,7 +112,11 @@ const ListPage = ({ $, list, desc }) => {
             <div className="mt-5">
               <div className="text-center w-full h-auto bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg p-6 shadow-md mx-auto" id="widgets">
                 <div className="px-4 mx-auto w-auto sm:px-6 lg:px-8 lg:text-center">
+                  { !desc ? (
+                    <NoDesc />
+                  ) : (
                     <div className="col-span-9 pt-5 lg:pt-0 w-auto" dangerouslySetInnerHTML={{ __html: desc }} />
+                  )}
                 </div>
               </div>
             </div>
@@ -114,12 +131,6 @@ export async function getServerSideProps(context) {
 
   const res = await fetch(`https://catnip.metrobots.xyz/list/${context.params.listId}`);
   const data = await res.json();
-
-  if (!data || !data.description) {
-      return {
-          notFound: true,
-      }
-  }
 
   marked.setOptions({
       gfm: true,

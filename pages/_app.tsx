@@ -88,6 +88,13 @@ export default function MetroApp({ Component, pageProps }) {
     },
     {
       link: true,
+      name: locale.navbar.github,
+      icon: "fab fa-github",
+      activeIcon: "fab fa-github",
+      href: "https://github.com/MetroReviews",
+    },
+    {
+      link: true,
       name: locale.navbar.team,
       icon: "fa fa-user-cog",
       activeIcon: "fa fa-home",
@@ -102,11 +109,11 @@ export default function MetroApp({ Component, pageProps }) {
     },
     {
       link: true,
-      name: locale.navbar.github,
-      icon: "fab fa-github",
-      activeIcon: "fab fa-github",
-      href: "https://github.com/MetroReviews",
-    }
+      name: locale.navbar.bots,
+      icon: "fas fa-robot",
+      activeIcon: "fas fa-robot",
+      href: "/bots",
+    },
   ];
 
   return (

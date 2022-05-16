@@ -6,6 +6,7 @@ module.exports = {
         home: 'Home',
         team: 'Team',
         lists: 'Lists',
+        bots: 'Bots',
         github: 'GitHub'
     },
 
@@ -54,15 +55,13 @@ module.exports = {
         description: 'The Dedicated Community of Discord Bot Lists.',
 
         buttons: {
-            dashboard: 'Dashboard',
-            support: 'Support Server',
-            with_discord: 'Login with Discord'
+            support: 'Get Support',
+            apply: 'Apply Now',
         },
 
         features: {
             title: 'Why choose <span class="text-amber-500 font-bold">Metro?</span>',
             description: 'We provide a Simple API that allows all our Supported List to easily Manage, Approve and Deny Bots all within our Dedicated Community of Bot List Staff. Thus essentially giving you and your Staff Team more time to focus on Server Management, Development and Moderation',
-            buttonText: 'Add to Discord',
             items: [
                  { 
                      icon: 'fas fa-check', 
@@ -132,11 +131,97 @@ module.exports = {
         }
     },
 
+    bot_rules: {
+        title1: 'Bot',
+        title2: 'Rules',
+        desc: 'Simple set of rules that all Bots should follow when added to one of our Supported Lists.',
+        updated: 'Last Update: 05/15/2022',
+        buttons: {
+            support: 'Get Support',
+            home: 'Go Home'
+        },
+        navigation: {
+            title: 'Navigation',
+            desc: 'Navigate to your desired section.',
+            bp: 'Best Practices',
+            br: 'Basic Rules',
+            cr: 'Command Rules',
+            us: 'User Safety',
+            ceq: 'Common Etiquette'
+        },
+        sections: {
+            bp: {
+                title: 'Best Practices',
+                desc: 'All rules available under this list of',
+                link: 'Discord Bot Best Practices',
+                out: 'apply. These rules may change depending on the bot. If you are a Bot Reviewer please use your best judgment here.'
+            },
+            br: {
+                title: 'Basic Rules',
+                list: {
+                    items: {
+                        item1: 'Your bot must be public, online and able to be invited during and throughout testing and must continue to work after initial review as well.',
+                        item2: 'It is perfectly OK to submit bots and servers that are in competition with bot lists (such as API/manager bots of other bot lists with their permission) as long as permission is explicitly granted and the bot serves a actual function.',
+                        item3: 'Your bot may not be a fork or instance of another bot without substantial modifications and prior permission from the owner of the bot you have forked/made an instance of.',
+                        item4: 'Your bot should handle errors in a user-friendly way. A way of reporting errors is a nice extra tidbit to have though not strictly required. Giving tracebacks is allowed however discouraged if it does not leak sensitive information such as bot tokens or private information on a user.',
+                        item5: 'Your bot must respect the Discord API and rate-limits. This also means that your bot should not spam messages or be a "rainbow role" bot.',
+                        item6: 'Your bot must follow the Discord ToS and guidelines. This also includes no invite rewards (as in giving rewards for just joining another server), no nuking etc.',
+                        item7: 'Custom bots based of/dependent on/running an instance of another bot such as bot-makers not allowed by discord, BotGhost, MEE6 Premium, Wick VIP is prohibited unless it has unique features that you have added to it and can be configured on other servers by users.',
+                        item8: 'For frameworks such as redbot, you must have at least 3 custom-made cogs (or the equivalent for other frameworks). You must give credits to any framework you are using. BDFD/BDScript/other bot makers are not allowed on RBC lists unless it is also allowed by Discord and your bot is high-quality and has features',
+                        item9: 'Generator bots are not allowed whatsoever on any of the Metro Reviews supported lists',
+                        item10: 'Bots may not impersonate other bots',
+                        item11: 'The term "loli" and other terms referring to the sexualization of young children is strictly probihited'
+                    }
+                }
+            },
+            cr: {
+                title: 'Command Rules',
+                list: {
+                    items: {
+                        item1: 'Your bot must have a obvious point of entry, This could be a help command or just slash commands.',
+                        item2: 'If your bot has level messages or welcome messages, it must be optional, configurable and desirable',
+                        item3: 'Your bot should not DM users when it join unless it needs to DM the owner important or sensitive information (such as Wick’s rescue key)',
+                        item4: 'Your bot should not DM users when they join a server unless a server manager chooses to enable such a feature. Bots that do need to DM users such as verification bots may be exempt from this rule on a case by case basis',
+                        item5: 'All commands of a bot should check user and their own permissions before doing any action. For example, your bot should not kick users unless the user and the bot has the Kick Members permission. Commands may not be admin locked and NSFW commands must be locked to NSFW channels',
+                        item6: 'Commands must have a purpose (no filler commands). Filler commands are ignored and will make your bot low quality. An example of filler commands/commands with no purpose is a bot with 20 purge commands or commands which are repeated in different ways or serve the same purpose',
+                        item7: 'Bots should have at least 5-7 working commands and at least 80% of commands shown in its help command working. If your bot has a really unique feature however, this rule may be reconsidered for your bot.',
+                        item8: 'Sensitive commands (such as eval) should be locked to bot owners only. RBC is not responsible for the code you run or for any arbitary code execution/privilege escalation on your bot however we do care if this affects servers your bot is in.',
+                        item9: 'Bots with common prefixes (!, ?, ., ;) should either have a customizable prefix (if it has Message Content Intents), use mentions or use slash commands. If your bot does not use slash commands, it must have an easy way to find its prefix. Some good places for this are on bot mentions and bot status'
+                    }
+                }
+            },
+            us: {
+                title: 'User Safety',
+                list: {
+                    items: {
+                        item1: 'Bots should not mass DM or be malicious in any way such as mass nuke, scam bots, free nitro bots.',
+                        item2: 'Your bot must not have a copyrighted avatar or username. All assets used in your bot must be either owned by you or with permission from the copyright owner. Your bot must, in short, abide to third-party rights',
+                        item3: 'Abusing Discord (mass creating or deleting channels, mass DM/spam/nuke bots) is strictly prohibited and doing so will get you and/or your bot banned from all Metro Reviews supported lists.',
+                        item4: 'Your bot may not be hosted on Glitch/Repl Free Plan and use a software to ping your project. This is also against Repl/Glitch ToS. Your bot must be online during testing',
+                        item5: 'Your bot must not reward users for voting for another bot',
+                        item6: 'Your bot may not contain any seizure-inducing content',
+                        item7: 'All bots that provide vote reminders or a "/dm" command must provide a way to disable it. All /dm commands must say who DM’d the user and must provide a way to disable it'
+                    }
+                }
+            },
+            ceq: {
+                title: 'Common Etiquette',
+                list: {
+                    items: {
+                        item1: 'DMing or otherwise demanding staff to ask for your bot to be approved/reviewed is strictly prohibited. Your bot will be denied or banned if you do so.',
+                        item2: 'You must not attempt to use Metro Reviews supported lists to distribute malware (such as XSS attacks, DDOS, rootkits, spyware etc). This will lead to your bot being banned from all Metro Reviews supported lists.',
+                        item3: 'You can always appeal a ban or resubmit your bot if the bot list you have added your bot to has support for resubmissions. Your bot list should, along with a link to this page, state whether or not they support this..'
+                    }
+                }
+            }
+        }
+    },
+
     etiquette: {
         title1: 'List',
         title2: 'Etiquette',
         updated: 'Last Update: 05/14/2022',
-        description: 'We realize and understand that no Bot List is the same. With that in mind there are still a few Guidelines that Bot Lists and their Staff Team should follow',
+        description: 'We realize and understand that no Bot List is the same. With that in mind there are still a few Guidelines that all Bot Lists and their Staff Team should follow',
         buttons: {
             support: 'Get Support',
             home: 'Go Home'
@@ -177,7 +262,7 @@ module.exports = {
         title1: 'List',
         title2: 'Requirements',
         updated: 'Last Update: 05/14/2022',
-        description: 'List of requirements that all Bot List are expected to meet!',
+        description: 'List of requirements that all Bot Lists are expected to meet!',
         navigation: {
             title: 'Navigation',
             desc: 'Navigate to your desired section',
@@ -261,6 +346,19 @@ module.exports = {
             support: 'Get Support',
             home: 'Go Home'
         },
+        navigation: {
+            title: 'Navigation',
+            desc: 'Navigate to your desired section',
+            terms: 'Terms',
+            use: 'Use License',
+            discl: 'Disclaimer',
+            limits: 'Limitations',
+            revise: 'Revisions and Errata',
+            third: 'Third-Party Links',
+            modify: 'Site Modifications',
+            privacy: 'Your Privacy',
+            law: 'Governing Law'
+        },
         sections: {
             terms: {
                 title: 'Terms',
@@ -268,30 +366,30 @@ module.exports = {
             },
             license: {
                 title: 'Use License',
-                texts: 'Permission is granted to temporarily download one copy of the materials on Metro Bots\'s Website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:',
+                texts: 'Permission is granted to temporarily download one copy of the materials on Metro Reviews\'s Website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:',
                 list: {
                     item_1: 'modify or copy the materials;',
                     item_2: 'use the materials for any commercial purpose or for any public display;',
-                    item_3: 'attempt to reverse engineer any software contained on Metro Bots\'s Website or API;',
+                    item_3: 'attempt to reverse engineer any software contained on Metro Reviews\'s Website or API;',
                     item_4: 'remove any copyright or other proprietary notations from the materials; or',
                     item_5: 'transferring the materials to another person or "mirror" the materials on any other server.'
                 }
             },
             disclaimer: {
                 title: 'Disclaimer',
-                texts: 'All the materials on Metro Bots’s Website are provided "as is". Metro Bots makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, Metro Bots does not make any representations concerning the accuracy or reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.',
+                texts: 'All the materials on Metro Reviews’s Website are provided "as is". Metro Reviews makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, Metro Reviews does not make any representations concerning the accuracy or reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.',
             },
             limitations: {
                 title: 'Limitations',
-                texts: 'Metro Bots or its suppliers will not be hold accountable for any damages that will arise with the use or inability to use the materials on Metro Bots’s Website, even if Metro Bots or an authorize representative of this Website has been notified, orally or written, of the possibility of such damage. Some jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental damages, these limitations may not apply to you.'
+                texts: 'Metro Reviews or its suppliers will not be hold accountable for any damages that will arise with the use or inability to use the materials on Metro Review’s Website, even if Metro Reviews or an authorized representative of this Website has been notified, orally or written, of the possibility of such damage. Some jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental damages, these limitations may not apply to you.'
             },
             revisions: {
                 title: 'Revisions and Errata',
-                texts: 'The materials appearing on Metro Bots’s Website may include technical, typographical, or photographic errors. Metro Bots will not promise that any of the materials in this Website are accurate, complete, or current. Metro Bots may change the materials contained on its Website at any time without notice. Metro Bots does not make any commitment to update the materials.'
+                texts: 'The materials appearing on Metro Reviews’s Website may include technical, typographical, or photographic errors. Metro Reviews will not promise that any of the materials in this Website are accurate, complete, or current. Metro Reviews may change the materials contained on its Website at any time without notice. Metro Reviews does not make any commitment to update the materials.'
             },
             links: {
                 title: 'Links',
-                texts: 'Metro Review has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by Metro Review of the site. The use of any linked website is at the user’s own risk.'
+                texts: 'Metro Reviews has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by Metro Review of the site. The use of any linked website is at the user’s own risk.'
             },
             modifications: {
                 title: 'Site Modifications',

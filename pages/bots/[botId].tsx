@@ -1,14 +1,35 @@
 import Avatar from "@/root/components/Interface/Avatar";
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import { MetaTags } from "@/root/components/Header/Meta";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify"
 import marked from "marked";
 import sanitize from "insane";
 
 
 const BotPage = ({ $, bot, long, owner, fetch, list }) => {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const copyListId = () => {
+    if (navigator.clipboard.writeText(`${bot.list_source}`)) {
+      setCopySuccess(true);
+    } else {
+      toast.error('Failed to Copy List ID');
+    }
+  };
+
+  setTimeout(() => {
+    setCopySuccess(false);
+  }, 7200);
 
   return (
     <>
+      <MetaTags
+        title={bot.username + " | Metro Reviews"}
+        description={bot.description || "View " + bot.username + "'s Page on Metro Reviews"}
+        image={fetch.avatar || "/img/logo.webp"}
+        name={"Posted via: " + list.name || "Metro Reviews"}
+      />
       <div className="overflow-hidden relative bg-background flex mx-auto items-center justify-center">
           <div className="mx-auto max-w-7xl">
               <div className="relative z-10 pb-8 bg-background sm:pb-16 md:pb-20 lg:pb-28 lg:w-full lg:max-w-2xl xl:pb-32">
@@ -78,16 +99,14 @@ const BotPage = ({ $, bot, long, owner, fetch, list }) => {
                        </p>
                     </div>
                 </div>
-                <CopyToClipboard text={bot.list_source} onCopy={() => toast.success('List Source ID has been copied to your clipboard!')}>
-                <button className="flex items-center shadow-xl w-full">
+                <button className="flex items-center shadow-xl w-full" onClick={copyListId}>
                     <div className="mt-2 bg-amber-800 text-center px-4 py-2 rounded-l-lg text-white">
                        <p className="line-clamp-1">Source:</p>
                     </div>
                     <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
-                         <p className="line-clamp-1 text-left">Copy Source ID!</p>
+                         <p className="line-clamp-1 text-left">{copySuccess ? "Copied" : "Copy Source ID"}</p>
                     </div>
                 </button>
-                </CopyToClipboard>
                </div>
               </div>
               <div className="mt-5">

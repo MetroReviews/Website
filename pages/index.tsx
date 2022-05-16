@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { toast } from "react-toastify"
 import useSWR from "swr";
 import { MetaTags } from "../components/Header/Meta";
+import { Loading } from "../components/Interface/Loading";
 
 interface lists {
   name: string;
@@ -17,8 +18,6 @@ export default function Index({ $, title }) {
   const { data: stats }: { data?: lists[] } = useSWR("list");
   const [enterLoading, setEnterLoading] = useState(false);
   const mainButton = useRef(null);
-
-  const Loading = () => <i className="fa fa-spinner-third fa-spin text-white" />;
 
   return (
     <>
@@ -83,9 +82,8 @@ export default function Index({ $, title }) {
       </div>
 
       {!stats ? 
-        <div className="col-span-1 md:col-span-2 flex items-center justify-center" onChange={() => { setEnterLoading(false)}}>
-          <i className="fad fa-spinner-third fa-spin text-white text-2xl" />
-      </div> : 
+        <Loading />
+      : 
       <div className="max-w-7xl text-center h-auto my-14 lg:my-56 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg p-6 shadow-md mx-auto" onLoad={() => { setEnterLoading(false)}}>
         <p className="text-2xl p-6 text-white font-semibold" dangerouslySetInnerHTML={{ __html: $.index.list_stats.chosen.replace('{list_count}', stats.length) }} />
              <div className="lg:px-32 flex flex-col lg:flex-row items-center justify-center lg:justify-between w-full mx-auto">
