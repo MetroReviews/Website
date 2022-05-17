@@ -24,60 +24,6 @@ export default function MetroApp({ Component, pageProps }) {
   const router = useRouter();
   const locale = require("../lang/" + (router.locale || "en"));
 
-  if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") {
-    const $function = (event) => {
-      let eventName = "";
-      if (event.ctrlKey == true) eventName += "ctrl+";
-      if (event.altKey == true) eventName += "alt+";
-      if (event.shiftKey == true) eventName += "shift+";
-
-      if (!["Shift", "Control", "Alt"].includes(event.key)) {
-        eventName += event.key.toLowerCase();
-      } else {
-        eventName = eventName.slice(0, eventName.length - 1);
-      }
-
-      const emitEvent = new CustomEvent("Metro", {
-        detail: { key: eventName, target: event.target },
-      });
-      window.dispatchEvent(emitEvent);
-    };
-  }
-  global.openTabInWindow = (url) => {
-    const w = 500;
-    const h = 700;
-    const dualScreenLeft =
-      window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-    const dualScreenTop =
-      window.screenTop !== undefined ? window.screenTop : window.screenY;
-
-    const width = window.innerWidth
-      ? window.innerWidth
-      : document.documentElement.clientWidth
-        ? document.documentElement.clientWidth
-        : screen.width;
-    const height = window.innerHeight
-      ? window.innerHeight
-      : document.documentElement.clientHeight
-        ? document.documentElement.clientHeight
-        : screen.height;
-
-    const systemZoom = width / window.screen.availWidth;
-    const left = (width - w) / 2 / systemZoom + dualScreenLeft;
-    const top = (height - h) / 2 / systemZoom + dualScreenTop;
-    let $w = window.open(
-      url,
-      "_blank",
-      `
-          toolbar=no,scrollbars=yes,resizable=no,
-          width=${w / systemZoom}, 
-          height=${h / systemZoom}, 
-          top=${top}, 
-          left=${left}
-          `
-    );
-  };
-
   const NavItems = [
     {
       link: true,
