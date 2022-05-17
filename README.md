@@ -9,6 +9,8 @@ Frontend/Website for Metro Reviews
 ## Contributing
 This website is Open-Source and available for our Community Members to contribute to.
 
+Please make sure you read the [Contributing Guidelines](./CONTRIBUTING.md) before submitting any Pull Requests or Changes
+
 ---
 
 ## Contributors
