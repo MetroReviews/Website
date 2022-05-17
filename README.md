@@ -1,6 +1,8 @@
 # Metro Reviews
 Frontend/Website for Metro Reviews
 
+[![CodeQL](https://github.com/MetroReviews/Website/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/MetroReviews/Website/actions/workflows/codeql.yml)
+
 ---
 
 ## Contributing
