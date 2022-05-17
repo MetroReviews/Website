@@ -1,7 +1,6 @@
 # Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue,
-or any other method with the owners of this repository before making a change. 
+When contributing to this project or submitting changes you will be promoted to make a Pull Request.
+Use this pull request to tell us about any changes you have made. And what you have fixed or removed.
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
 
