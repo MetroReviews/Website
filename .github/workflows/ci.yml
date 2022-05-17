@@ -1,7 +1,6 @@
 name: Continuous Integration
 
-on: [push, fork, pull_request]
-permissions: read-all|write-all
+on: [fork, pull_request]
 
 jobs:
   prettier:
