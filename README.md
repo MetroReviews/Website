@@ -4,7 +4,7 @@ Frontend/Website for Metro Reviews
 ---
 
 ## Contributing
-This website is Open-Source and available for our Community Members to contribute and help develop our Website.
+This website is Open-Source and available for our Community Members to contribute to.
 
 ---
 
