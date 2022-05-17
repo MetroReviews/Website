@@ -1,0 +1,13 @@
+# Security Policy
+
+## Supported Versions
+
+| Version | Supported          |
+| ------- | ------------------ |
+| 0.0.3   | :white_check_mark: |
+| 0.0.2   | :white_check_mark: |
+| 0.0.1   | :white_check_mark: |
+
+## Reporting a Vulnerability
+
+If you find any security vulnerabilities with our website please open a new issue and we will do our best to answer in a timely fashion.
