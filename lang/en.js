@@ -52,7 +52,7 @@ module.exports = {
 
     index: {
         title: 'Metro Reviews',
-        description: 'The Dedicated Community of Discord Bot Lists.',
+        description: 'The Dedicated Community for Discord Bot Lists.',
 
         buttons: {
             support: 'Get Support',
