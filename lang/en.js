@@ -312,7 +312,7 @@ module.exports = {
             },
             fork: {
                 title: 'Forked Lists',
-                desc: 'Any Bot Lists based on other Bot Lists (such as forks or clones) should follow these addition requirements:',
+                desc: 'Any Bot Lists based on other Bot Lists (such as forks or clones) should follow these additional requirements:',
                 list: {
                     items: {
                         item1: 'Give Credits to the Original Author of the Code (in the Footer preferably)',
