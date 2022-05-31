@@ -6,7 +6,7 @@ import Router, { useRouter } from "next/router";
 import Head from "next/head";
 import "react-toastify/dist/ReactToastify.css";
 import { SWRConfig } from "swr";
-import Script from 'next/script';
+import Script from "next/script";
 
 import Header from "../components/Static/Header";
 import Footer from "../components/Static/Footer";
@@ -15,9 +15,9 @@ import { checkCookies, setCookies } from "cookies-next";
 
 import { Slide, ToastContainer } from "react-toastify";
 
-import '../lib/icons';
+import "../lib/icons";
 
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from "next-themes";
 import Cookies from "../components/Interface/Cookies";
 
 export default function MetroApp({ Component, pageProps }) {
@@ -64,8 +64,11 @@ export default function MetroApp({ Component, pageProps }) {
 
   return (
     <>
-
-      <Script id="gtag" strategy="lazyOnload" src='https://www.googletagmanager.com/gtag/js?id=G-F6Q4SP318X' />
+      <Script
+        id="gtag"
+        strategy="lazyOnload"
+        src="https://www.googletagmanager.com/gtag/js?id=G-F6Q4SP318X"
+      />
       <Script id="lazy" strategy="lazyOnload">
         {`
            window.dataLayer = window.dataLayer || [];
@@ -77,32 +80,36 @@ export default function MetroApp({ Component, pageProps }) {
         `}
       </Script>
 
-    <SWRConfig
-      value={{
-        fetcher: (url: string) =>
-          fetch(`/api/${url}`).then((res) => res.json()),
-      }}
-    >
-      <ThemeProvider defaultTheme='violet'>
-        <div className="h-screen relative border-t-4 border-amber-600">
-          <div
-            className="bg-gradient-to-br z-10 opacity-[50%] absolute top-0 w-full from-amber-600 to-transparent"
-            style={{ height: "500px" }}
-          />
-          <main className="transition-all duration-200 z-10 absolute inset-0 h-screen w-full mx-auto">
-            <div className="px-5">
-              <Header $={locale} NavItems={NavItems} />
-            </div>
-            <div className="block px-5 md:px-0">
-              <Component $={locale} {...pageProps} />
-            </div>
-            <ToastContainer theme="dark" position="bottom-right" transition={Slide} />
-            <Cookies />
-            <Footer $={locale} />
-          </main>
-        </div>
-      </ThemeProvider>
-    </SWRConfig>
+      <SWRConfig
+        value={{
+          fetcher: (url: string) =>
+            fetch(`/api/${url}`).then((res) => res.json()),
+        }}
+      >
+        <ThemeProvider defaultTheme="violet">
+          <div className="h-screen relative border-t-4 border-amber-600">
+            <div
+              className="bg-gradient-to-br z-10 opacity-[50%] absolute top-0 w-full from-amber-600 to-transparent"
+              style={{ height: "500px" }}
+            />
+            <main className="transition-all duration-200 z-10 absolute inset-0 h-screen w-full mx-auto">
+              <div className="px-5">
+                <Header $={locale} NavItems={NavItems} />
+              </div>
+              <div className="block px-5 md:px-0">
+                <Component $={locale} {...pageProps} />
+              </div>
+              <ToastContainer
+                theme="dark"
+                position="bottom-right"
+                transition={Slide}
+              />
+              <Cookies />
+              <Footer $={locale} />
+            </main>
+          </div>
+        </ThemeProvider>
+      </SWRConfig>
     </>
   );
 }

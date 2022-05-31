@@ -1,2 +1,2 @@
-declare module '@headlessui/react'
-declare module 'fs';
+declare module "@headlessui/react";
+declare module "fs";
