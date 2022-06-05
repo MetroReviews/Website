@@ -48,7 +48,7 @@ module.exports = {
         },
       },
     },
-    footerCredits: "Made with ❤️ by Toxic Dev#5936 & Rootspring#6701",
+    footerCredits: "© 2022 Metro Reviews & Award Development",
   },
 
   index: {
