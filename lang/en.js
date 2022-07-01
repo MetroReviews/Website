@@ -1,8 +1,8 @@
 module.exports = {
   overview: require("../locales.config.js")["en"],
   title: '<span class="text-amber-500 font-bold">Metro</span> Reviews',
-  name: 'English',
-  country: 'gb',
+  name: "English",
+  country: "gb",
 
   navbar: {
     home: "Home",
@@ -488,7 +488,8 @@ module.exports = {
     },
     sections: {
       base: {
-        text1: "At Metro Reviews, accessible from metrobots.xyz, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Metro Reviews and how we use it.",
+        text1:
+          "At Metro Reviews, accessible from metrobots.xyz, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Metro Reviews and how we use it.",
         text2:
           "If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.",
         text3:
@@ -558,15 +559,14 @@ module.exports = {
         title: "Google Analytics",
         texts: {
           base: "We use Google Analytics as a third-party tracking service, but we don’t use it to track you individually or collect your User Personal Information. We use Google Analytics to collect information about how our Website performs and how our users, in general, navigate through and use Metro Reviews. This helps us evaluate our users' use of Metro Reviews; compile statistical reports on activity; and improve our content and website performance.",
-          second: "Google Analytics gathers certain information over time, such as your IP address, browser type, internet service provider, referring and exit pages, time stamp, and similar data about your use of Metro Reviews. We do not link this information to any of your personal information such as your username.",
+          second:
+            "Google Analytics gathers certain information over time, such as your IP address, browser type, internet service provider, referring and exit pages, time stamp, and similar data about your use of Metro Reviews. We do not link this information to any of your personal information such as your username.",
           third: {
             text: "Metro Reviews will not, nor will we authorize any third party to, use the Google Analytics tool to track our users individually; collect any User Personal Information other than IP address; or correlate your IP address with your identity. Google provides further information about its own privacy practices and",
-            link: "offers a browser add-on to opt out of Google Analytics tracking. "
+            link: "offers a browser add-on to opt out of Google Analytics tracking. ",
           },
-          out: "Certain pages on our site may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets."
-        }
-
-
+          out: "Certain pages on our site may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.",
+        },
       },
       ccpa: {
         title: "CCPA Privacy Rights (Do Not Sell My Personal Information)",

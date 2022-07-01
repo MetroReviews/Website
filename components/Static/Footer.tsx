@@ -11,11 +11,10 @@ import { setCookies } from "cookies-next";
 
 const Footer = ({ $ }) => {
   const router = useRouter();
-  const locale = require("../../lang/" + (router.locale));
+  const locale = require("../../lang/" + router.locale);
 
   return (
     <>
-
       <footer
         className="bg-gradient-to-br from-amber-900/90 to-transparent max-w-full mt-10"
         aria-labelledby="footer-heading"

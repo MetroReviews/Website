@@ -3,7 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MetaTags } from "@/root/components/Header/Meta";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
-import url2 from 'is-url';
+import url2 from "is-url";
 
 const BotPage = ({ $, bot, long, owner, fetch, list }) => {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -266,10 +266,9 @@ const BotPage = ({ $, bot, long, owner, fetch, list }) => {
 };
 
 export async function getServerSideProps(context) {
-
-  const showdown = require('showdown');
+  const showdown = require("showdown");
   const converter = new showdown.Converter();
-  converter.setOption('tables', 'true');
+  converter.setOption("tables", "true");
 
   const res = await fetch(
     `https://catnip.metrobots.xyz/bots/${context.params.botId}`
@@ -298,29 +297,30 @@ export async function getServerSideProps(context) {
   const list = await lists.json();
 
   let desc;
-  let isUrl = url2(data.long_description.replace('\n', '').replace('', ''));
-   
-   if (isUrl)
-     desc = `<iframe src="${data.long_description
-      .replace('\n', '')
+  let isUrl = url2(data.long_description.replace("\n", "").replace("", ""));
+
+  if (isUrl)
+    desc = `<iframe src="${data.long_description
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"><object data="${data.long_description
-      .replace('\n', '')
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"><embed src="${data.long_description
-      .replace('\n', '')
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"> </embed>${data.long_description
-      .replace('\n', '')
-      .replace(' ', '')}</object></iframe>`;
-      else if (data.long_description) desc = converter.makeHtml(data.long_description);
-      else desc = data.long_description;
+      .replace("\n", "")
+      .replace(" ", "")}</object></iframe>`;
+  else if (data.long_description)
+    desc = converter.makeHtml(data.long_description);
+  else desc = data.long_description;
 
   return {
     props: {

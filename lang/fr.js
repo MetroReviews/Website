@@ -1,8 +1,8 @@
 module.exports = {
   overview: require("../locales.config.js")["en"],
   title: '<span class="text-amber-500 font-bold">Métro</span> Critiques',
-  name: 'Français',
-  country: 'fr',
+  name: "Français",
+  country: "fr",
 
   navbar: {
     home: "Accueil",
@@ -566,15 +566,14 @@ module.exports = {
         title: "Google Analytics",
         texts: {
           base: "Nous utilisons Google Analytics comme un service de suivi tiers, mais nous ne l'utilisons pas pour vous suivre individuellement ou pour collecter vos données personnelles. Nous utilisons Google Analytics pour recueillir des informations sur les performances de notre site Web et sur la façon dont nos utilisateurs, en général, naviguent et utilisent Metro Reviews. Cela nous aide à évaluer l'utilisation de Metro Reviews par nos utilisateurs, à compiler des rapports statistiques sur l'activité et à améliorer notre contenu et les performances de notre site Web.",
-          second: "Google Analytics recueille certaines informations au fil du temps, telles que votre adresse IP, votre type de navigateur, votre fournisseur d'accès Internet, les pages de renvoi et de sortie, l'horodatage et d'autres données similaires concernant votre utilisation de Metro Reviews. Nous ne lions pas ces informations à vos données personnelles, comme votre nom d'utilisateur.",
+          second:
+            "Google Analytics recueille certaines informations au fil du temps, telles que votre adresse IP, votre type de navigateur, votre fournisseur d'accès Internet, les pages de renvoi et de sortie, l'horodatage et d'autres données similaires concernant votre utilisation de Metro Reviews. Nous ne lions pas ces informations à vos données personnelles, comme votre nom d'utilisateur.",
           third: {
             text: "Metro Reviews n'utilisera pas, et n'autorisera pas un tiers à utiliser l'outil Google Analytics pour suivre nos utilisateurs individuellement, recueillir des renseignements personnels autres que l'adresse IP, ou établir une corrélation entre votre adresse IP et votre identité. Google fournit de plus amples informations sur ses propres pratiques en matière de protection de la vie privée et sur les éléments suivants",
-            link: "propose un module complémentaire de navigateur permettant de refuser le suivi par Google Analytics."
+            link: "propose un module complémentaire de navigateur permettant de refuser le suivi par Google Analytics.",
           },
-          out: "Certaines pages de notre site peuvent définir d'autres cookies tiers. Par exemple, nous pouvons intégrer du contenu, comme des vidéos, provenant d'un autre site qui définit un cookie. Bien que nous essayions de minimiser ces cookies tiers, nous ne pouvons pas toujours contrôler les cookies que ce contenu tiers définit."
-        }
-
-
+          out: "Certaines pages de notre site peuvent définir d'autres cookies tiers. Par exemple, nous pouvons intégrer du contenu, comme des vidéos, provenant d'un autre site qui définit un cookie. Bien que nous essayions de minimiser ces cookies tiers, nous ne pouvons pas toujours contrôler les cookies que ce contenu tiers définit.",
+        },
       },
       ccpa: {
         title:

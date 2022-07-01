@@ -90,9 +90,7 @@ export default function Bots({ $, fetch }) {
                 className="flex flex-col justify-center text-white rounded w-auto h-max"
               >
                 <div className="flex-1 gap-x-4 flex items-center bg-gradient-to-br from-neutral-900/80 to-neutral-900/20 p-3 rounded-lg w-auto h-full border border-amber-800">
-                  <Avatar
-                     id={bot.bot_id}
-                  />
+                  <Avatar id={bot.bot_id} />
                   <div>
                     <h1
                       className="leading-none text-lg font-bold text-white"

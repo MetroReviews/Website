@@ -291,7 +291,10 @@ export default function Privacy({ $ }) {
                         {$.privacy.sections.base.text3}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="consent">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="consent"
+                      >
                         {$.privacy.sections.consent.title}
                       </h2>
 
@@ -299,7 +302,10 @@ export default function Privacy({ $ }) {
                         {$.privacy.sections.consent.texts}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="data_storage">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="data_storage"
+                      >
                         {$.privacy.sections.data_store.title}
                       </h2>
 
@@ -321,7 +327,10 @@ export default function Privacy({ $ }) {
                         </li>
                       </ul>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="data_usage">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="data_usage"
+                      >
                         {$.privacy.sections.data_usage.title}
                       </h2>
 
@@ -347,7 +356,10 @@ export default function Privacy({ $ }) {
                         </li>
                       </ul>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="log_files">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="log_files"
+                      >
                         {$.privacy.sections.log_files.title}
                       </h2>
 
@@ -355,7 +367,10 @@ export default function Privacy({ $ }) {
                         {$.privacy.sections.log_files.texts}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="cookies">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="cookies"
+                      >
                         {$.privacy.sections.cookies.title}
                       </h2>
 
@@ -370,7 +385,10 @@ export default function Privacy({ $ }) {
                         {$.privacy.sections.cookies.texts.outro}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="ad_partners">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="ad_partners"
+                      >
                         {$.privacy.sections.ad_partners.title}
                       </h2>
 
@@ -386,7 +404,10 @@ export default function Privacy({ $ }) {
                         {$.privacy.sections.ad_partners.texts.out}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="third_party">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="third_party"
+                      >
                         {$.privacy.sections.third_party.title}
                       </h2>
 
@@ -398,7 +419,10 @@ export default function Privacy({ $ }) {
                         {$.privacy.sections.third_party.texts.out}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="analytics">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="analytics"
+                      >
                         {$.privacy.sections.analytics.title}
                       </h2>
 
@@ -411,17 +435,23 @@ export default function Privacy({ $ }) {
                       </p>
 
                       <p className="mt-4 text-white/50 font-medium text-lg">
-                        {$.privacy.sections.analytics.texts.third.text}
-                        {" "}<a className="text-amber-500 hover:text-amber-800" href="https://tools.google.com/dlpage/gaoptout">
-                                {$.privacy.sections.analytics.texts.third.link}
-                            </a>
+                        {$.privacy.sections.analytics.texts.third.text}{" "}
+                        <a
+                          className="text-amber-500 hover:text-amber-800"
+                          href="https://tools.google.com/dlpage/gaoptout"
+                        >
+                          {$.privacy.sections.analytics.texts.third.link}
+                        </a>
                       </p>
 
                       <p className="mt-4 text-white/50 font-medium text-lg">
                         {$.privacy.sections.analytics.texts.out}
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="ccpa">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="ccpa"
+                      >
                         {$.privacy.sections.ccpa.title}
                       </h2>
 
@@ -444,7 +474,10 @@ export default function Privacy({ $ }) {
                         </Link>
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="gdpr">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="gdpr"
+                      >
                         {$.privacy.sections.gdpr.title}
                       </h2>
 
@@ -470,7 +503,10 @@ export default function Privacy({ $ }) {
                         </Link>
                       </p>
 
-                      <h2 className="mt-10 text-white font-bold text-3xl" id="childrens_info">
+                      <h2
+                        className="mt-10 text-white font-bold text-3xl"
+                        id="childrens_info"
+                      >
                         {$.privacy.sections.children.title}
                       </h2>
 
