@@ -25,6 +25,6 @@ export interface BlogPost {
   coverImage: string;
   ogImage: {
     url: string;
-  }
+  };
   content: string;
 }

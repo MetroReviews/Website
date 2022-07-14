@@ -6,7 +6,7 @@ import Header from "../components/Static/Header";
 import { NavItems } from "../utils/navItems";
 import { parseUser } from "../utils/parseUser";
 import { DiscordUser } from "../utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 
 interface Props {
   user: DiscordUser;
@@ -52,7 +52,9 @@ const SoonPage = (props: Props) => {
 
 export default SoonPage;
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
   return { props: { user } };

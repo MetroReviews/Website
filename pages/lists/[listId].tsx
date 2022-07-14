@@ -8,10 +8,10 @@ import Header from "@/root/components/Static/Header";
 import { NavItems } from "@/root/utils/navItems";
 import { parseUser } from "@/root/utils/parseUser";
 import { DiscordUser } from "@/root/utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import url2 from 'is-url';
+import url2 from "is-url";
 
 interface Props {
   user: DiscordUser;
@@ -26,7 +26,6 @@ interface Props {
 }
 
 const ListPage = (props: Props) => {
-
   const router = useRouter();
   const $ = require("@/root/lang/" + (router.locale || "en"));
 
@@ -61,7 +60,7 @@ const ListPage = (props: Props) => {
                 <div className="border-[2.2px] w-[8rem] h-[8rem] border-white-500/50 rounded-full flex mx-auto items-center justify-center">
                   <Avatar
                     src={props?.list.icon || "/img/defaultUser.webp"}
-                    alt={props?.list.name + 'logo' || 'Default List Logo'}
+                    alt={props?.list.name + "logo" || "Default List Logo"}
                     className="rounded-full mx-auto inline-flex"
                     height="512"
                   />
@@ -151,13 +150,14 @@ const ListPage = (props: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
-
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
-  const showdown = require('showdown');
+  const showdown = require("showdown");
   const converter = new showdown.Converter();
-  converter.setOption('tables', 'true');
+  converter.setOption("tables", "true");
 
   const res = await fetch(
     `https://catnip.metrobots.xyz/list/${ctx.params.listId}`
@@ -165,29 +165,29 @@ export const getServerSideProps: GetServerSideProps<Props> = async function (ctx
   const data = await res.json();
 
   let desc;
-  let isUrl = url2(data.description.replace('\n', '').replace('', ''));
-   
-   if (isUrl)
-     desc = `<iframe src="${data.description
-      .replace('\n', '')
+  let isUrl = url2(data.description.replace("\n", "").replace("", ""));
+
+  if (isUrl)
+    desc = `<iframe src="${data.description
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"><object data="${data.description
-      .replace('\n', '')
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"><embed src="${data.description
-      .replace('\n', '')
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"> </embed>${data.description
-      .replace('\n', '')
-      .replace(' ', '')}</object></iframe>`;
-      else if (data.description) desc = converter.makeHtml(data.description);
-      else desc = data.description;
+      .replace("\n", "")
+      .replace(" ", "")}</object></iframe>`;
+  else if (data.description) desc = converter.makeHtml(data.description);
+  else desc = data.description;
 
   return {
     props: {

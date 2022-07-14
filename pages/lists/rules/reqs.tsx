@@ -6,7 +6,7 @@ import Header from "@/root/components/Static/Header";
 import { NavItems } from "@/root/utils/navItems";
 import { parseUser } from "@/root/utils/parseUser";
 import { DiscordUser } from "@/root/utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 
 interface Props {
   user: DiscordUser;
@@ -300,7 +300,9 @@ export default function Requirements(props: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
   return { props: { user } };

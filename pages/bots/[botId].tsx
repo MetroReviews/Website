@@ -7,22 +7,22 @@ import Header from "@/root/components/Static/Header";
 import { NavItems } from "@/root/utils/navItems";
 import { parseUser } from "@/root/utils/parseUser";
 import { DiscordUser } from "@/root/utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 import { toast } from "react-toastify";
-import url2 from 'is-url';
+import url2 from "is-url";
 
 interface Props {
   user: DiscordUser;
   owner: {
     avatar: string;
     username: string;
-  }
+  };
   list: {
     name: string;
-  }
+  };
   fetch: {
     avatar: string;
-  }
+  };
   bot: {
     bot_id: string;
     username: string;
@@ -36,17 +36,17 @@ interface Props {
     support: string;
     donate: string;
     library: string;
-    nsfw: boolean,
+    nsfw: boolean;
     prefix: string;
-    tags: [],
+    tags: [];
     review_note: string;
-    cross_add: boolean,
+    cross_add: boolean;
     state: number;
     list_source: string;
     added_at: string;
     reviewer: string;
     invite_link: string;
-  }
+  };
   long: string;
 }
 
@@ -72,7 +72,8 @@ const BotPage = (props: Props) => {
       <MetaTags
         title={props?.bot.username + " | Metro Reviews"}
         description={
-          props?.bot.description || "View " + props?.bot.username + "'s Page on Metro Reviews"
+          props?.bot.description ||
+          "View " + props?.bot.username + "'s Page on Metro Reviews"
         }
         image={props?.fetch.avatar || "/img/logo.webp"}
         name={"Posted via: " + props?.list.name || "Metro Reviews"}
@@ -86,7 +87,7 @@ const BotPage = (props: Props) => {
                 <div className="border-[2.2px] w-[8rem] h-[8rem] border-white-500/50 rounded-full flex mx-auto items-center justify-center">
                   <Avatar
                     src={props?.fetch.avatar}
-                    alt='Bot Logo' 
+                    alt="Bot Logo"
                     className="rounded-full mx-auto inline-flex"
                     height="512"
                   />
@@ -174,7 +175,9 @@ const BotPage = (props: Props) => {
                     </div>
                     <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white">
                       <p className="line-clamp-1">
-                        {props?.bot.prefix ? props?.bot.prefix : "Slash Commands"}
+                        {props?.bot.prefix
+                          ? props?.bot.prefix
+                          : "Slash Commands"}
                       </p>
                     </div>
                   </div>
@@ -222,7 +225,9 @@ const BotPage = (props: Props) => {
                       </div>
                     </div>
                     <div className="mt-2 bg-amber-600 w-full px-4 py-2 rounded-r-lg text-white h-[3rem]">
-                      <p className="line-clamp-1 text-xl">{props?.owner.username}</p>
+                      <p className="line-clamp-1 text-xl">
+                        {props?.owner.username}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -314,13 +319,14 @@ const BotPage = (props: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
-
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
-  const showdown = require('showdown');
+  const showdown = require("showdown");
   const converter = new showdown.Converter();
-  converter.setOption('tables', 'true');
+  converter.setOption("tables", "true");
 
   const res = await fetch(
     `https://catnip.metrobots.xyz/bots/${ctx.params.botId}`
@@ -349,29 +355,30 @@ export const getServerSideProps: GetServerSideProps<Props> = async function (ctx
   const list = await lists.json();
 
   let desc;
-  let isUrl = url2(data.long_description.replace('\n', '').replace('', ''));
-   
-   if (isUrl)
-     desc = `<iframe src="${data.long_description
-      .replace('\n', '')
+  let isUrl = url2(data.long_description.replace("\n", "").replace("", ""));
+
+  if (isUrl)
+    desc = `<iframe src="${data.long_description
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"><object data="${data.long_description
-      .replace('\n', '')
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"><embed src="${data.long_description
-      .replace('\n', '')
+      .replace("\n", "")
       .replace(
-        ' ',
-        ''
+        " ",
+        ""
       )}" width="100%" height="100%" style="width: 100%; height: 100vh; color: black;"> </embed>${data.long_description
-      .replace('\n', '')
-      .replace(' ', '')}</object></iframe>`;
-      else if (data.long_description) desc = converter.makeHtml(data.long_description);
-      else desc = data.long_description;
+      .replace("\n", "")
+      .replace(" ", "")}</object></iframe>`;
+  else if (data.long_description)
+    desc = converter.makeHtml(data.long_description);
+  else desc = data.long_description;
 
   return {
     props: {

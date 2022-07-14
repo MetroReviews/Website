@@ -25,7 +25,7 @@ module.exports = withPWA({
     APPLY_HOOK_ID: process.env.APPLY_HOOK_ID,
     APPLY_HOOK_KEY: process.env.APPLY_HOOK_KEY,
     MONGO: process.env.MONGO,
-    CRYPTR: process.env.CRYPTR
+    CRYPTR: process.env.CRYPTR,
   },
   async redirects() {
     return [
@@ -37,13 +37,13 @@ module.exports = withPWA({
       {
         source: "/discord",
         destination: "https://discord.gg/49DE35a5eJ",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/support",
         destination: "https://discord.gg/49DE35a5eJ",
-        permanent: true
-      }
+        permanent: true,
+      },
     ];
   },
 });

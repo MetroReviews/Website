@@ -28,7 +28,13 @@ const MobileNavbar = ({ Menu, open, setOpen, NavItems, allowLogin }) => {
         <div className="relative w-full h-full">
           <div className="flex justify-between border-b border-white/20 items-center px-5 py-4">
             <div className="flex items-center">
-              <img width="32" height="32" className="icon-glow" alt="Metro Logo" src="/img/logo.png" />
+              <img
+                width="32"
+                height="32"
+                className="icon-glow"
+                alt="Metro Logo"
+                src="/img/logo.png"
+              />
               <p className=" font-extrabold ml-1 text-2xl">Metro</p>
             </div>
             <button onClick={() => setOpen(!open)}>
@@ -101,34 +107,42 @@ const Header = ({ $, NavItems, props, allowLogin }) => {
 
   const dropdownItems = [
     {
-        icon: <i className="w-8 flex items-center justify-center fas fa-plus"></i>,
-        title: 'Add a List',
-        description: 'Submit a new Bot List to Metro Reviews.',
-        type: 'link',
-        href: '/lists/apply'
+      icon: (
+        <i className="w-8 flex items-center justify-center fas fa-plus"></i>
+      ),
+      title: "Add a List",
+      description: "Submit a new Bot List to Metro Reviews.",
+      type: "link",
+      href: "/lists/apply",
     },
     {
-      icon: <i className="w-8 flex items-center justify-center fas fa-user-cog"></i>,
-      title: 'Dashboard',
-      description: 'View your Dashboard and Listed Bots',
-      type: 'link',
-      href: '/soon'
+      icon: (
+        <i className="w-8 flex items-center justify-center fas fa-user-cog"></i>
+      ),
+      title: "Dashboard",
+      description: "View your Dashboard and Listed Bots",
+      type: "link",
+      href: "/soon",
     },
     {
-      icon: <i className="w-8 flex items-center justify-center fas fa-book"></i>,
-      title: 'Documentation',
-      description: 'View the Metro Review API Documentation',
-      type: 'link',
-      href: 'https://catnip.metrobots.xyz/docs'
+      icon: (
+        <i className="w-8 flex items-center justify-center fas fa-book"></i>
+      ),
+      title: "Documentation",
+      description: "View the Metro Review API Documentation",
+      type: "link",
+      href: "https://catnip.metrobots.xyz/docs",
     },
     {
-        icon: <i className="w-8 flex items-center justify-center fal fa-user"></i>,
-        title: 'Profile',
-        description: 'Update your Profile and Biography.',
-        type: 'link',
-        href: '/soon'
+      icon: (
+        <i className="w-8 flex items-center justify-center fal fa-user"></i>
+      ),
+      title: "Profile",
+      description: "Update your Profile and Biography.",
+      type: "link",
+      href: "/soon",
     },
-];
+  ];
 
   const ChangeColor = (id) => {
     setTheme(id);
@@ -154,7 +168,11 @@ const Header = ({ $, NavItems, props, allowLogin }) => {
       {banner && (
         <div className="bg-amber-900/20 py-2 px-4 rounded-xl mt-5 md:flex items-center md:justify-between">
           <div className="flex items-center space-x-4">
-            <img className="w-8 h-8" alt="info-logo" src="/img/information.webp" />
+            <img
+              className="w-8 h-8"
+              alt="info-logo"
+              src="/img/information.webp"
+            />
             <h1 className="font-light text-zinc-200">
               <b className="font-semibold text-white">Welcome</b> to Metro
               Reviews.{" "}
@@ -191,7 +209,7 @@ const Header = ({ $, NavItems, props, allowLogin }) => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-3">
               <img
-              alt="Metro Logo"
+                alt="Metro Logo"
                 src="/img/logo.webp"
                 className={`
                                     favicon rounded-full
@@ -320,153 +338,156 @@ const Header = ({ $, NavItems, props, allowLogin }) => {
               </Transition>
             </Menu>
             <>
-            {allowLogin && (
-            <div>
-            {!props?.user ? (
-              <Link href={`/api/auth`} locale="en">
-                <a className="w-auto flex items-center justify-center shadow-lg gap-x-2 shadow-amber-600/20 rounded-xl py-2.5 font-medium px-7 bg-gradient-to-tl from-amber-500 to-amber-700 text-white  hover:opacity-80 transition duration-200">
-                 Login
-                </a>
-              </Link>
-              ) : (
-              <Popover className="relative inline-block z-50">
-               {({ open, close }) => (
-                <>
-                <Popover.Button className="relative">
-                  <img
-                    onClick={() => setColors(false)}
-                    className="rounded-full cursor-pointer"
-                    width="48"
-                    height="48"
-                    src={
-                      props.user
-                      ? `https://cdn.discordapp.com/avatars/${props?.user.id}/${props?.user.avatar}.png`
-                      : '/img/defaultUser.'
-                    }
-                    alt={props.user ? props?.user.username : 'Avatar'}
-                  />
-                  </Popover.Button>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="opacity-0 translate-y-1"
-                    enterTo="opacity-100 translate-y-0"
-                    leave="transition ease-in duration-150"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 translate-y-1"
-                  >
-                  <Popover.Panel className="absolute z-10 w-96 max-w-sm px-4 mt-3 transform -right-5 md:right-0 sm:px-0 lg:max-w-xl">
-                    <div className="dropdown-container overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                      <div className="relative grid gap-8 p-7 lg:grid-cols-">
-                        {dropdownItems.map((item, index) => {
-                          const child = (
-                            <a className="flex items-center p-2 px-3 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-amber-700/20 focus:outline-none">
-                              <div className="relative flex items-center justify-center flex-shrink-0 w-10 h-10 text-amber-400 sm:h-12 sm:w-12">
-                                <div className="text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-amber-700 sm:h-12 flex items-center justify-center sm:w-12 text-3xl">
-                                  {item.icon}
+              {allowLogin && (
+                <div>
+                  {!props?.user ? (
+                    <Link href={`/api/auth`} locale="en">
+                      <a className="w-auto flex items-center justify-center shadow-lg gap-x-2 shadow-amber-600/20 rounded-xl py-2.5 font-medium px-7 bg-gradient-to-tl from-amber-500 to-amber-700 text-white  hover:opacity-80 transition duration-200">
+                        Login
+                      </a>
+                    </Link>
+                  ) : (
+                    <Popover className="relative inline-block z-50">
+                      {({ open, close }) => (
+                        <>
+                          <Popover.Button className="relative">
+                            <img
+                              onClick={() => setColors(false)}
+                              className="rounded-full cursor-pointer"
+                              width="48"
+                              height="48"
+                              src={
+                                props.user
+                                  ? `https://cdn.discordapp.com/avatars/${props?.user.id}/${props?.user.avatar}.png`
+                                  : "/img/defaultUser."
+                              }
+                              alt={props.user ? props?.user.username : "Avatar"}
+                            />
+                          </Popover.Button>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0 translate-y-1"
+                            enterTo="opacity-100 translate-y-0"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0"
+                            leaveTo="opacity-0 translate-y-1"
+                          >
+                            <Popover.Panel className="absolute z-10 w-96 max-w-sm px-4 mt-3 transform -right-5 md:right-0 sm:px-0 lg:max-w-xl">
+                              <div className="dropdown-container overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div className="relative grid gap-8 p-7 lg:grid-cols-">
+                                  {dropdownItems.map((item, index) => {
+                                    const child = (
+                                      <a className="flex items-center p-2 px-3 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-amber-700/20 focus:outline-none">
+                                        <div className="relative flex items-center justify-center flex-shrink-0 w-10 h-10 text-amber-400 sm:h-12 sm:w-12">
+                                          <div className="text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-amber-700 sm:h-12 flex items-center justify-center sm:w-12 text-3xl">
+                                            {item.icon}
+                                          </div>
+                                        </div>
+                                        <div className="ml-4">
+                                          <p className="text-sm font-medium text-white">
+                                            {item.title}
+                                          </p>
+                                          <p className="text-sm text-gray-400">
+                                            {item.description}
+                                          </p>
+                                        </div>
+                                      </a>
+                                    );
+
+                                    return item.type != "link" ? (
+                                      <a
+                                        className="cursor-pointer"
+                                        onClick={() => {
+                                          close();
+                                        }}
+                                      >
+                                        {child}
+                                      </a>
+                                    ) : (
+                                      <Link
+                                        key={index}
+                                        href={item.href.replace(
+                                          "[id]",
+                                          props?.user
+                                            ? props?.user.id
+                                            : "0000000000000"
+                                        )}
+                                      >
+                                        {child}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                                <div className="p-4 grid gap-8 lg:grid-cols-1">
+                                  <a
+                                    href={"https://discord.gg/49DE35a5eJ"}
+                                    className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                  >
+                                    <span className="flex items-center">
+                                      <i className="mr-1 flex items-center justify-center text-amber-500 fas fa-question-circle"></i>
+                                      <span className="text-sm font-medium text-amber-500">
+                                        API Support
+                                      </span>
+                                    </span>
+                                    <span className="block text-sm text-gray-400">
+                                      Join the Metro Reviews Discord Server for
+                                      API Support.
+                                    </span>
+                                  </a>
+                                  <a
+                                    href={"/legal/terms"}
+                                    className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                  >
+                                    <span className="flex items-center">
+                                      <i className="mr-1 flex items-center justify-center text-amber-500 fas fa-gavel"></i>
+                                      <span className="text-sm font-medium text-amber-500">
+                                        Terms
+                                      </span>
+                                    </span>
+                                    <span className="block text-sm text-gray-400">
+                                      View the Metro Reviews Terms of Service.
+                                    </span>
+                                  </a>
+                                  <a
+                                    href={"/legal/privacy"}
+                                    className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                  >
+                                    <span className="flex items-center">
+                                      <i className="mr-1 flex items-center justify-center text-amber-500 fas fa-fingerprint"></i>
+                                      <span className="text-sm font-medium text-amber-500">
+                                        Privacy
+                                      </span>
+                                    </span>
+                                    <span className="block text-sm text-gray-400">
+                                      View the Metro Reviews Privacy Policy.
+                                    </span>
+                                  </a>
+                                  <a
+                                    href={"/api/logout"}
+                                    className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                  >
+                                    <span className="flex items-center">
+                                      <i className="mr-1 flex items-center justify-center text-amber-500 fal fa-sign-out-alt"></i>
+                                      <span className="text-sm font-medium text-amber-500">
+                                        Logout
+                                      </span>
+                                    </span>
+                                    <span className="block text-sm text-gray-400">
+                                      Logout of the Metro Review Website.
+                                    </span>
+                                  </a>
                                 </div>
                               </div>
-                              <div className="ml-4">
-                                <p className="text-sm font-medium text-white">
-                                  {item.title}
-                                </p>
-                                <p className="text-sm text-gray-400">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </a>
-                          );
-
-                          return item.type != 'link' ? (
-                            <a
-                              className="cursor-pointer"
-                              onClick={() => {
-                                close();
-                              }}
-                            >
-                              {child}
-                            </a>
-                        ) : (
-                          <Link
-                            key={index}
-                            href={item.href.replace(
-                              '[id]',
-                              props?.user ? props?.user.id : '0000000000000'
-                            )}
-                          >
-                            {child}
-                          </Link>
-                        );
-                        })}
-                      </div>
-                      <div className="p-4 grid gap-8 lg:grid-cols-1">
-                      <a
-                        href={'https://discord.gg/49DE35a5eJ'}
-                        className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                      >
-                        <span className="flex items-center">
-                          <i className="mr-1 flex items-center justify-center text-amber-500 fas fa-question-circle"></i>
-                            <span className="text-sm font-medium text-amber-500">
-                              API Support
-                            </span>
-                        </span>
-                        <span className="block text-sm text-gray-400">
-                          Join the Metro Reviews Discord Server for API Support.
-                        </span>
-                      </a>
-                      <a
-                        href={'/legal/terms'}
-                        className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                      >
-                        <span className="flex items-center">
-                          <i className="mr-1 flex items-center justify-center text-amber-500 fas fa-gavel"></i>
-                            <span className="text-sm font-medium text-amber-500">
-                              Terms
-                            </span>
-                        </span>
-                        <span className="block text-sm text-gray-400">
-                          View the Metro Reviews Terms of Service.
-                        </span>
-                      </a>
-                      <a
-                        href={'/legal/privacy'}
-                        className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                      >
-                        <span className="flex items-center">
-                          <i className="mr-1 flex items-center justify-center text-amber-500 fas fa-fingerprint"></i>
-                            <span className="text-sm font-medium text-amber-500">
-                              Privacy
-                            </span>
-                        </span>
-                        <span className="block text-sm text-gray-400">
-                          View the Metro Reviews Privacy Policy.
-                        </span>
-                      </a>
-                      <a
-                        href={'/api/logout'}
-                        className="cursor-pointer flow-root px-4 py-3 transition duration-150 ease-in-out rounded-md hover:bg-amber-700/20 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                      >
-                        <span className="flex items-center">
-                          <i className="mr-1 flex items-center justify-center text-amber-500 fal fa-sign-out-alt"></i>
-                            <span className="text-sm font-medium text-amber-500">
-                              Logout
-                            </span>
-                        </span>
-                        <span className="block text-sm text-gray-400">
-                          Logout of the Metro Review Website.
-                        </span>
-                      </a>
-                      </div>
-                    </div>
-                  </Popover.Panel>
-                  </Transition>
-                </>
-               )}
-              </Popover>
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
+                  )}
+                </div>
               )}
-             </div>
-            )}
-           </>
+            </>
           </div>
         </div>
       </header>

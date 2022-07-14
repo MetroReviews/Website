@@ -9,7 +9,7 @@ import Header from "../../components/Static/Header";
 import { NavItems } from "../../utils/navItems";
 import { parseUser } from "../../utils/parseUser";
 import { DiscordUser } from "../../utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 
 interface lists {
   name: string;
@@ -73,10 +73,7 @@ export default function Lists(props: Props) {
                         {$.lists.buttons.support}
                       </a>
                     </Link>
-                    <Link
-                      className="mt-4 mb-4"
-                      href={"/lists/apply"}
-                    >
+                    <Link className="mt-4 mb-4" href={"/lists/apply"}>
                       <a
                         target="_blank"
                         onClick={() => setEnterLoading(true)}
@@ -108,7 +105,7 @@ export default function Lists(props: Props) {
                 <div className="flex-1 gap-x-4 flex items-center bg-gradient-to-br from-neutral-900/80 to-neutral-900/20 p-3 rounded-lg w-auto h-full border border-amber-800">
                   <img
                     className="rounded-full h-24 w-24"
-                    alt={list.name + 'logo'}
+                    alt={list.name + "logo"}
                     src={!list.icon ? `/img/defaultUser.webp` : list.icon}
                   />
                   <div>
@@ -223,7 +220,9 @@ export default function Lists(props: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
   return { props: { user } };

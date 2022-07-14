@@ -7,7 +7,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { oAuth } from "@/root/lib/mongo/schemas/authSchema";
 import { users } from "@/root/lib/mongo/schemas/userSchema";
 import callDBClient from "@/root/lib/mongo/dbClient";
-import Cryptr from "cryptr"
+import Cryptr from "cryptr";
 const cryptr = new Cryptr(`${process.env.CRYPTR}`);
 
 const scope = ["identify"].join(" ");
@@ -68,11 +68,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     {
       headers: { Authorization: `${token_type} ${access_token}` },
     }
-  ).then((res) => res.json())
-  .catch(e => console.log(e.stack));
+  )
+    .then((res) => res.json())
+    .catch((e) => console.log(e.stack));
 
   let oauthuser = await oAuth.findOne({ id: me.id });
-  if (!oauthuser) oauthuser = await oAuth.create({ token: encryptedToken })
+  if (!oauthuser) oauthuser = await oAuth.create({ token: encryptedToken });
 
   oauthuser.id = me.id;
   oauthuser.token = encryptedToken;
@@ -80,19 +81,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   let isSudo;
 
   if (sudoUsers.includes(me.id)) {
-    isSudo = true
+    isSudo = true;
   } else {
-    isSudo = false
+    isSudo = false;
   }
 
   let baseUser = await users.findOne({ id: me.id });
-  if (!baseUser) baseUser = await users.create(
-    { 
-      id: me.id, 
-      sudo: isSudo, 
-      blacklisted: false 
-    }
-  )
+  if (!baseUser)
+    baseUser = await users.create({
+      id: me.id,
+      sudo: isSudo,
+      blacklisted: false,
+    });
 
   baseUser.id = me.id;
   baseUser.sudo = isSudo;

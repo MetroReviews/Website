@@ -9,7 +9,7 @@ import Header from "../components/Static/Header";
 import { NavItems } from "../utils/navItems";
 import { parseUser } from "../utils/parseUser";
 import { DiscordUser } from "../utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 
 interface lists {
   name: string;
@@ -165,7 +165,9 @@ export default function Index(props: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
   return { props: { user } };

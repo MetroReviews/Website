@@ -28,5 +28,5 @@ export const config = {
   appUri: validateEnv("APP_URI"),
   jwtSecret: validateEnv("JWT_SECRET"),
   mongo: validateEnv("MONGO"),
-  sudoUsers: ["563808552288780322", "510065483693817867"]
+  sudoUsers: ["563808552288780322", "510065483693817867"],
 } as const;

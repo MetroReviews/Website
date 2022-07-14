@@ -11,11 +11,10 @@ import { setCookies } from "cookies-next";
 
 const Footer = ({ $ }) => {
   const router = useRouter();
-  const locale = require("../../lang/" + (router.locale));
+  const locale = require("../../lang/" + router.locale);
 
   return (
     <>
-
       <footer
         className="bg-gradient-to-br from-amber-900/90 to-transparent max-w-full mt-40"
         aria-labelledby="footer-heading"
@@ -49,7 +48,7 @@ const Footer = ({ $ }) => {
                         width="24"
                         height="18"
                         className="mr-2 h-4 rounded-sm"
-                        alt={locale.country.name + 'logo'}
+                        alt={locale.country.name + "logo"}
                       />
                       {locale.name}
                       <ChevronDownIcon
@@ -87,7 +86,7 @@ const Footer = ({ $ }) => {
                                     width="24"
                                     height="18"
                                     className="mr-2 h-4 rounded-sm"
-                                    alt={locales[locale].country.name + 'logo'}
+                                    alt={locales[locale].country.name + "logo"}
                                   />
                                   {locales[locale].name}
                                 </button>

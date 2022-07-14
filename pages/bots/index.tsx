@@ -8,7 +8,7 @@ import Header from "@/root/components/Static/Header";
 import { NavItems } from "@/root/utils/navItems";
 import { parseUser } from "@/root/utils/parseUser";
 import { DiscordUser } from "@/root/utils/types";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 import useSWR from "swr";
 
@@ -70,10 +70,7 @@ export default function Bots(props: Props) {
                         Bot Rules
                       </a>
                     </Link>
-                    <Link
-                      className="mt-4 mb-4"
-                      href={"/lists/apply"}
-                    >
+                    <Link className="mt-4 mb-4" href={"/lists/apply"}>
                       <a
                         target="_blank"
                         onClick={() => setEnterLoading(true)}
@@ -103,9 +100,7 @@ export default function Bots(props: Props) {
                 className="flex flex-col justify-center text-white rounded w-auto h-max"
               >
                 <div className="flex-1 gap-x-4 flex items-center bg-gradient-to-br from-neutral-900/80 to-neutral-900/20 p-3 rounded-lg w-auto h-full border border-amber-800">
-                  <Avatar
-                     id={bot.bot_id}
-                  />
+                  <Avatar id={bot.bot_id} />
                   <div>
                     <h1
                       className="leading-none text-lg font-bold text-white inline"
@@ -191,7 +186,9 @@ export default function Bots(props: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
+export const getServerSideProps: GetServerSideProps<Props> = async function (
+  ctx
+) {
   const user = parseUser(ctx);
 
   return { props: { user } };
