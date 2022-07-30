@@ -1,4 +1,4 @@
-# Metro Reviews!
+# Metro Reviews
 Source Code for the Metro Reviews Website made with Next.js.
 
 [![CodeQL](https://github.com/MetroReviews/Website/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/MetroReviews/Website/actions/workflows/codeql.yml)
