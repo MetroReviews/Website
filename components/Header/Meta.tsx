@@ -5,8 +5,8 @@ export const MetaTags = ({ title, description, image, name }) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta charset="UTF-8">
-      <meta name="keywords" content="metro, reviews, bots, discord bots, Metro Reviews, Metro Bots, Discord Bots">
+      <meta charset="UTF-8" />
+      <meta name="keywords" content="metro, reviews, bots, discord bots, Metro Reviews, Metro Bots, Discord Bots" />
       <meta name="msapplication-TileColor" content="#220A49" />
       <meta name="theme-color" content="#220A49" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
