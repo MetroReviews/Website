@@ -5,7 +5,6 @@ export const MetaTags = ({ title, description, image, name }) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta charset="UTF-8" />
       <meta
         name="keywords"
         content="metro, reviews, bots, discord bots, Metro Reviews, Metro Bots, Discord Bots"
